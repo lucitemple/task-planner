@@ -10,16 +10,18 @@
 
     <title>Task Planner</title>
   </head>
+
   <body>
-      <header>
+      <div class="container">
+      <header id="pageTitle">
     <h1>Task Planner</h1>
     </header>
 <main>
 
-    
+    <div class="row">
     <!--Create Task button-->
     <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="createTaskButton">
   Create Task
 </button>
 
@@ -35,8 +37,10 @@
       <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Done</a></li>
     </ul>
   </div>
-
 <section  class="task-input-form"></section>
+
+<!--Close ROW for button and drop down filter-->
+</div>
     <!--Modal (to open on click of Create Task Button)-->
 
 <!-- Modal -->
@@ -111,7 +115,7 @@
     <!--Task cards displayed-->
 </main>
     <!--Footer-->
-
+</div>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
