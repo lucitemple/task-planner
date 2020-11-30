@@ -24,6 +24,17 @@
 </button>
 
 <!--Create Dropdown filter to select by status-->
+<div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="statusFilter" data-toggle="dropdown">Filter tasks by status
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" role="menu" aria-labelledby="statusFilter">
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">To do</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">In progress</a></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Review</a></li>
+      <li role="presentation" class="divider"></li>
+      <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Done</a></li>
+    </ul>
+  </div>
 
 <section  class="task-input-form"></section>
     <!--Modal (to open on click of Create Task Button)-->
