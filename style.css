@@ -10,6 +10,14 @@
 #statusFilter {
     
 }
+.card{
+ box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  padding:2px;
+}
 /*
 #taskButton {
   background-color: red;
