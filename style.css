@@ -1,9 +1,11 @@
 
-/*
 #pageTitle {
+  text-align: center;
+  margin-top: 2rem;
 
 }
 
+/*
 #createTaskButton{
 
 }
@@ -12,6 +14,10 @@
     
 }
 */
+
+.header-buttons {
+  justify-content: center;
+}
 .card{
  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   width: 80%;
