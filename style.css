@@ -30,8 +30,9 @@
 
 .card-text{
     font-size:19px;
-    text-overflow: hidden;
-    white-space: nowtap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*white-space: nowrap; */
     overflow: auto;
 }
   
