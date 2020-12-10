@@ -16,7 +16,7 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <!-- CSS Stylsheet-->
+    <!-- CSS Stylesheet-->
     <link rel="stylesheet" href="./style.css" type="text/css" />
 
     <title>Task Planner</title>
@@ -27,348 +27,222 @@
       <header id="pageTitle">
         <h1>Task Planner</h1>
       </header>
-      <main>
-        <div class="row header-buttons">
-          <!--Create Task button-->
-          <!-- Create button trigger Task modal -->
+      <!-- Row for buttons at top -->
+      <div class="row header-buttons">
+        <!-- Create button trigger Task modal -->
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#exampleModal"
+          id="createTaskButton"
+        >
+          Create Task
+        </button>
+        <!--Create Dropdown filter to select by status-->
+        <div class="dropdown">
           <button
+            class="btn btn-default dropdown-toggle"
             type="button"
-            class="btn btn-primary"
-            data-toggle="modal"
-            data-target="#exampleModal"
-            id="createTaskButton"
+            id="statusFilter"
+            data-toggle="dropdown"
           >
-            Create Task
+            Filter tasks by status
+            <span class="caret"></span>
           </button>
-          <!--Create Dropdown filter to select by status-->
-          <div class="dropdown">
-            <button
-              class="btn btn-default dropdown-toggle"
-              type="button"
-              id="statusFilter"
-              data-toggle="dropdown"
-            >
-              Filter tasks by status
-              <span class="caret"></span>
-            </button>
-            <ul
-              class="dropdown-menu"
-              role="menu"
-              aria-labelledby="statusFilter"
-            >
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">To do</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">In progress</a>
-              </li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">Review</a>
-              </li>
-              <li role="presentation" class="divider"></li>
-              <li role="presentation">
-                <a role="menuitem" tabindex="-1" href="#">Done</a>
-              </li>
-            </ul>
-          </div>
-          <!--Close ROW for button and drop down filter-->
+          <ul class="dropdown-menu" role="menu" aria-labelledby="statusFilter">
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#">To do</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#">In progress</a>
+            </li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#">Review</a>
+            </li>
+            <li role="presentation" class="divider"></li>
+            <li role="presentation">
+              <a role="menuitem" tabindex="-1" href="#">Done</a>
+            </li>
+          </ul>
         </div>
-        <!--Modal (to open on click of Create Task Button)-->
-        <section class="task-input-form">
-          <!--What is this section for? Was opened & closed on row 39-->
-          <!-- Modal -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog modal-dialog-centered">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                    Create Task
-                  </h5>
-                  <button
-                    type="button"
-                    class="close"
-                    data-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    <span aria-hidden="true">&times;</span>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <!--FORM CONTENT START-->
-                  <form id="newTaskForm">
-                    <!--Task name input-->
-                    <div class="form-group row">
-                      <label for="newTaskNameInput" class="col-sm-3 col-form-label"
-                        >Task name</label
-                      >
-                      <div class="col-sm-9">
-                        <input type="text" class="form-control" id="newTaskNameInput" />
-                      </div>
-                    </div>
-                    <!--assignedTo input-->
-                    <div class="form-group row">
-                      <label for="newTaskAssignedTo" class="col-sm-3 col-form-label"
-                        >Assigned to</label
-                      >
-                      <div class="col-sm-9">
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="newTaskAssignedTo"
-                        />
-                      </div>
-                    </div>
-                    <!--Description textarea input-->
-                    <div class="form-group row">
-                      <label for="newTaskDescription" class="col-sm-3 col-form-label"
-                        >Description</label
-                      >
-                      <div class="col-sm-9">
-                        <textarea
-                          class="form-control"
-                          rows="5"
-                          id="newTaskDescription"
-                        ></textarea>
-                      </div>
-                    </div>
-                    <!--Status dropdown input-->
-                    <div class="form-group row">
-                      <label for="newTaskStatus" class="col-sm-3 col-form-label"
-                        >Status:</label
-                      >
-                      <div class="col-sm-9">
-                        <select class="form-control" id="newTaskStatus">
-                          <option value="toDo">To do</option>
-                          <option value="inProgress">In progress</option>
-                          <option value="review">Review</option>
-                          <option value="done">Done</option>
-                        </select>
-                      </div>
-                    </div>
+      </div>
+      <!--Close ROW for button and drop down filter-->
 
-                    <!--dueDate input-->
-                    <div class="form-group row">
-                      <label for="newTaskDueDate" class="col-sm-3 col-form-label"
-                        >Due date</label
-                      >
-                      <div class="col-sm-9">
-                        <input type="date" class="form-control" id="newTaskDueDate" />
-                      </div>
+      <!--Modal (to open on click of Create Task Button)-->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Create Task</h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <!--FORM CONTENT START-->
+              <section class="task-input-form">
+                <!--DOES THIS BELONG HERE? moved from before modal opened-->
+                <form id="newTaskForm">
+                  <!--Task name input-->
+                  <div class="form-group row">
+                    <label
+                      for="newTaskNameInput"
+                      class="col-sm-3 col-form-label"
+                    >
+                      Task name
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskNameInput"
+                      />
                     </div>
-                  </form>
-                  <!-- FORM CONTENT END-->
-                </div>
-                <div class="modal-footer">
-                  <button
+                  </div>
+                  <!--assignedTo input-->
+                  <div class="form-group row">
+                    <label
+                      for="newTaskAssignedTo"
+                      class="col-sm-3 col-form-label"
+                    >
+                      Assigned to
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="newTaskAssignedTo"
+                      />
+                    </div>
+                  </div>
+                  <!--Description textarea input-->
+                  <div class="form-group row">
+                    <label
+                      for="newTaskDescription"
+                      class="col-sm-3 col-form-label"
+                    >
+                      Description
+                    </label>
+                    <div class="col-sm-9">
+                      <textarea
+                        class="form-control"
+                        rows="5"
+                        id="newTaskDescription"
+                      ></textarea>
+                    </div>
+                  </div>
+                  <!--Status dropdown input-->
+                  <div class="form-group row">
+                    <label for="newTaskStatus" class="col-sm-3 col-form-label">
+                      Status:
+                    </label>
+                    <div class="col-sm-9">
+                      <select class="form-control" id="newTaskStatus">
+                        <option value="toDo">To do</option>
+                        <option value="inProgress">In progress</option>
+                        <option value="review">Review</option>
+                        <option value="done">Done</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <!--dueDate input-->
+                  <div class="form-group row">
+                    <label for="newTaskDueDate" class="col-sm-3 col-form-label">
+                      Due date
+                    </label>
+                    <div class="col-sm-9">
+                      <input
+                        type="date"
+                        class="form-control"
+                        id="newTaskDueDate"
+                      />
+                    </div>
+                  </div>
+                  <!-- <div class="modal-footer"> if we want a footer-->
+                  <!-- Close button-->
+                  <div class="form-group row">
+                    <!-- <button
                     type="button"
                     class="btn btn-danger"
                     data-dismiss="modal"
                   >
                     Close
-                  </button>
-                  <button type="submit" class="btn btn-success">Submit</button>
-                  <!-- Form Validation Error Message-->
-                  <div id="formErrorMessage" style="display: none" class="alert alert-danger" role="alert">Error</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!--Task cards displayed-->
-        <!-- Task card list -->
-
-        <!-- Card 1 -->
-
-        <div class="d-flex flex-wrap justify-content-center">
-          <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
-          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-            <div class="card-body">
-              <h5 class="card-title">Grocery Shopping</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
-                tempore rem consequuntur voluptatum, dolorum, reprehenderit
-                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
-                consequuntur blanditiis mollitia ea, at tempora.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="assigned-to-label list-group-item">
-                Assigned to:
-                <span class="assignee">Marium</span>
-              </li>
-              <li class="list-group-item due-date-label">
-                Due date:
-                <span class="due-date">20/10/2020</span>
-              </li>
-              <li class="list-group-item status-label">
-                Status:
-                <span class="status">Complete</span>
-              </li>
-            </ul>
-            <div class="card-body">
-              <!-- Adding button -->
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-success">Edit</button>
-              <!-- <a href="#" class="card-link">Card link</a> -->
-              <!-- <a href="#" class="card-link">Another link</a> -->
-            </div>
-          </div>
-          <br />
-          <!-- Card 2 begins here-->
-
-          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <h5 class="card-title">Laundry</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
-                tempore rem consequuntur voluptatum, dolorum, reprehenderit
-                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
-                consequuntur blanditiis mollitia ea, at tempora.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="assigned-to-label list-group-item">
-                Assigned to:
-                <span class="assignee">Marium</span>
-              </li>
-              <li class="list-group-item due-date-label">
-                Due date:
-                <span class="due-date">20/10/2020</span>
-              </li>
-              <li class="list-group-item status-label">
-                Status:
-                <span class="status">Complete</span>
-              </li>
-            </ul>
-            <div class="card-body">
-              <!-- Adding button -->
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-success">Edit</button>
-              <!-- <a href="#" class="card-link">Card link</a> -->
-              <!-- <a href="#" class="card-link">Another link</a> -->
-            </div>
-          </div>
-          <br />
-
-          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <h5 class="card-title">Change Internet provider</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
-                tempore rem consequuntur voluptatum, dolorum, reprehenderit
-                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
-                consequuntur blanditiis mollitia ea, at tempora.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="assigned-to-label list-group-item">
-                Assigned to:
-                <span class="assignee">Marium</span>
-              </li>
-              <li class="list-group-item due-date-label">
-                Due date:
-                <span class="due-date">20/10/2020</span>
-              </li>
-              <li class="list-group-item status-label">
-                Status:
-                <span class="status">Complete</span>
-              </li>
-            </ul>
-            <div class="card-body">
-              <!-- Adding button -->
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-success">Edit</button>
-              <!-- <a href="#" class="card-link">Card link</a> -->
-              <!-- <a href="#" class="card-link">Another link</a> -->
-            </div>
-          </div>
-          <br />
-          <!-- Card 4 begins here -->
-
-          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <h5 class="card-title">Dentist appointment</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
-                tempore rem consequuntur voluptatum, dolorum, reprehenderit
-                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
-                consequuntur blanditiis mollitia ea, at tempora.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="assigned-to-label list-group-item">
-                Assigned to:
-                <span class="assignee">Marium</span>
-              </li>
-              <li class="list-group-item due-date-label">
-                Due date:
-                <span class="due-date">20/10/2020</span>
-              </li>
-              <li class="list-group-item status-label">
-                Status:
-                <span class="status">Complete</span>
-              </li>
-            </ul>
-            <div class="card-body">
-              <!-- Adding button -->
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-success">Edit</button>
-              <!-- <a href="#" class="card-link">Card link</a> -->
-              <!-- <a href="#" class="card-link">Another link</a> -->
-            </div>
-          </div>
-          <br />
-          <!-- card 5 begins here -->
-
-          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-            <div class="card-body">
-              <h5 class="card-title">Group Studies</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
-                tempore rem consequuntur voluptatum, dolorum, reprehenderit
-                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
-                consequuntur blanditiis mollitia ea, at tempora.
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="assigned-to-label list-group-item">
-                Assigned to:
-                <span class="assignee">Marium</span>
-              </li>
-              <li class="list-group-item due-date-label">
-                Due date:
-                <span class="due-date">20/10/2020</span>
-              </li>
-              <li class="list-group-item status-label">
-                Status:
-                <span class="status">Complete</span>
-              </li>
-            </ul>
-            <div class="card-body">
-              <!-- Adding button -->
-              <button type="button" class="btn btn-danger">Delete</button>
-              <button type="submit" class="btn btn-success">Edit</button>
-              <!-- <a href="#" class="card-link">Card link</a> -->
-              <!-- <a href="#" class="card-link">Another link</a> -->
+                  </button> -->
+                    <!-- Submit button-->
+                    <button type="submit" class="btn btn-success">
+                      Submit
+                    </button>
+                    <!-- Form Validation Error Message-->
+                    <div
+                      id="formErrorMessage"
+                      style="display: none"
+                      class="alert alert-danger"
+                      role="alert"
+                    >
+                      Error
+                    </div>
+                  </div>
+                </form>
+              </section>
+              <!-- FORM CONTENT END-->
             </div>
           </div>
         </div>
-      </main>
+      </div>
+      <!--Modal END-->
+
+      <!--Task cards container START-->
+      <div class="d-flex flex-wrap justify-content-center">
+        <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
+        <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+          <div class="card-body">
+            <h5 class="card-title">Grocery Shopping</h5>
+            <p class="card-text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+              tempore rem consequuntur voluptatum, dolorum, reprehenderit
+              quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+              consequuntur blanditiis mollitia ea, at tempora.
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="assigned-to-label list-group-item">
+              Assigned to:
+              <span class="assignee">Marium</span>
+            </li>
+            <li class="list-group-item due-date-label">
+              Due date:
+              <span class="due-date">20/10/2020</span>
+            </li>
+            <li class="list-group-item status-label">
+              Status:
+              <span class="status">Complete</span>
+            </li>
+          </ul>
+          <div class="card-body">
+            <!-- Buttons -->
+            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-success">Edit</button>
+          </div>
+        </div>
+      </div>
+      <!-- Task Card Container END-->
+
       <!--Footer-->
     </div>
     <!-- Optional JavaScript; choose one of the two! -->
-
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
     <script
       src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
