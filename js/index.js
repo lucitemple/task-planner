@@ -1,21 +1,28 @@
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 
-// Select New Task Form inputs, and store values.
-const newTaskNameInput = document.querySelector("#newTaskNameInput");
-const taskName = newTaskNameInput.value;
+// Add event listener for form submission
+newTaskForm.addEventListener("submit", (event)  => {
+  // Prevent page from refreshing
+  event.preventDefault();
 
-const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
-const assignedTo = newTaskAssignedTo.value;
+  // Select New Task Form inputs, and store values.
+  const newTaskNameInput = document.querySelector("#newTaskNameInput");
+  const taskName = newTaskNameInput.value;
 
-const newTaskDescription = document.querySelector("#newTaskDescription");
-const taskDescription = newTaskDescription.value;
+  const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
+  const assignedTo = newTaskAssignedTo.value;
 
-const newTaskStatus = document.querySelector("#newTaskStatus");
-const taskStatus = newTaskStatus.value;
+  const newTaskDescription = document.querySelector("#newTaskDescription");
+  const taskDescription = newTaskDescription.value;
 
-const newTaskDueDate = document.querySelector("#newTaskDueDate");
-const dueDate = newTaskDueDate.value;
+  const newTaskStatus = document.querySelector("#newTaskStatus");
+  const taskStatus = newTaskStatus.value;
+
+  const newTaskDueDate = document.querySelector("#newTaskDueDate");
+  const dueDate = newTaskDueDate.value;
+  
+});
 
 
 // Validate data to ensure not empty string or null
