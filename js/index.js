@@ -28,6 +28,7 @@ newTaskForm.addEventListener('submit', (event)  => {
   if (!validFormFieldInput(taskName)) {
       formErrorMessage.innerHTML = "Invalid name. Please correct.";
       formErrorMessage.style.display = "block";
+      formErrorMessage.style.color = "text-danger";
   } else {
       formErrorMessage.style.display = "none";
   }
