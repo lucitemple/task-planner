@@ -101,7 +101,7 @@
                 </div>
                 <div class="modal-body">
                   <!--FORM CONTENT START-->
-                  <form>
+                  <form id="newTaskForm">
                     <!--Task name input-->
                     <div class="form-group row">
                       <label for="newTaskNameInput" class="col-sm-3 col-form-label"
@@ -126,24 +126,24 @@
                     </div>
                     <!--Description textarea input-->
                     <div class="form-group row">
-                      <label for="newTaskdescription" class="col-sm-3 col-form-label"
+                      <label for="newTaskDescription" class="col-sm-3 col-form-label"
                         >Description</label
                       >
                       <div class="col-sm-9">
                         <textarea
                           class="form-control"
                           rows="5"
-                          id="newTaskdescription"
+                          id="newTaskDescription"
                         ></textarea>
                       </div>
                     </div>
                     <!--Status dropdown input-->
                     <div class="form-group row">
-                      <label for="newTaskstatus" class="col-sm-3 col-form-label"
+                      <label for="newTaskStatus" class="col-sm-3 col-form-label"
                         >Status:</label
                       >
                       <div class="col-sm-9">
-                        <select class="form-control" id="newTaskstatus">
+                        <select class="form-control" id="newTaskStatus">
                           <option value="toDo">To do</option>
                           <option value="inProgress">In progress</option>
                           <option value="review">Review</option>
@@ -154,11 +154,11 @@
 
                     <!--dueDate input-->
                     <div class="form-group row">
-                      <label for="newTaskdueDate" class="col-sm-3 col-form-label"
+                      <label for="newTaskDueDate" class="col-sm-3 col-form-label"
                         >Due date</label
                       >
                       <div class="col-sm-9">
-                        <input type="date" class="form-control" id="newTaskdueDate" />
+                        <input type="date" class="form-control" id="newTaskDueDate" />
                       </div>
                     </div>
                   </form>
