@@ -21,7 +21,15 @@ newTaskForm.addEventListener("submit", (event)  => {
 
   const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const dueDate = newTaskDueDate.value;
-  
+
+  const formErrorMessage = document.querySelector("#errorMessage");
+
+  if (!validFormFieldInput(taskName)) {
+      formErrorMessage.innerHTML = "Invalid name. Please correct."
+  } else {
+      formErrorMessage.getElementsByClassName.display = "none"
+  }
+
 });
 
 
