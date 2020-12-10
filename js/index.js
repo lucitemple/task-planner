@@ -24,6 +24,7 @@ newTaskForm.addEventListener("submit", (event)  => {
 
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
+// If invalid data, error message.
   if (!validFormFieldInput(taskName)) {
       formErrorMessage.innerHTML = "Invalid name. Please correct.";
       formErrorMessage.getElementsByClassName.display = "block";
