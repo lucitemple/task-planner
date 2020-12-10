@@ -34,7 +34,7 @@ newTaskForm.addEventListener("submit", (event)  => {
 
 
 // Validate data to ensure not empty string or null
-const validFormFieldInput = (data) => {
+function validFormFieldInput(data) {
     return (data !== null && data !== '');
 }
 
