@@ -16,6 +16,8 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
+    <!-- CSS Stylsheet-->
+    <link rel="stylesheet" href="./style.css" type="text/css" />
 
     <title>Task Planner</title>
   </head>
@@ -46,7 +48,8 @@
               id="statusFilter"
               data-toggle="dropdown"
             >
-              Filter tasks by status <span class="caret"></span>
+              Filter tasks by status
+              <span class="caret"></span>
             </button>
             <ul
               class="dropdown-menu"
@@ -98,7 +101,7 @@
                 </div>
                 <div class="modal-body">
                   <!--FORM CONTENT START-->
-                  <form>
+                  <form id="newTaskForm">
                     <!--Task name input-->
                     <div class="form-group row">
                       <label for="newTaskNameInput" class="col-sm-3 col-form-label"
@@ -123,24 +126,24 @@
                     </div>
                     <!--Description textarea input-->
                     <div class="form-group row">
-                      <label for="newTaskdescription" class="col-sm-3 col-form-label"
+                      <label for="newTaskDescription" class="col-sm-3 col-form-label"
                         >Description</label
                       >
                       <div class="col-sm-9">
                         <textarea
                           class="form-control"
                           rows="5"
-                          id="newTaskdescription"
+                          id="newTaskDescription"
                         ></textarea>
                       </div>
                     </div>
                     <!--Status dropdown input-->
                     <div class="form-group row">
-                      <label for="newTaskstatus" class="col-sm-3 col-form-label"
+                      <label for="newTaskStatus" class="col-sm-3 col-form-label"
                         >Status:</label
                       >
                       <div class="col-sm-9">
-                        <select class="form-control" id="newTaskstatus">
+                        <select class="form-control" id="newTaskStatus">
                           <option value="toDo">To do</option>
                           <option value="inProgress">In progress</option>
                           <option value="review">Review</option>
@@ -151,11 +154,11 @@
 
                     <!--dueDate input-->
                     <div class="form-group row">
-                      <label for="newTaskdueDate" class="col-sm-3 col-form-label"
+                      <label for="newTaskDueDate" class="col-sm-3 col-form-label"
                         >Due date</label
                       >
                       <div class="col-sm-9">
-                        <input type="date" class="form-control" id="newTaskdueDate" />
+                        <input type="date" class="form-control" id="newTaskDueDate" />
                       </div>
                     </div>
                   </form>
@@ -177,176 +180,185 @@
         </section>
 
         <!--Task cards displayed-->
-            <!-- Task card list -->
+        <!-- Task card list -->
 
-            <!-- Card 1 -->
+        <!-- Card 1 -->
 
-      <div class="d-flex flex-wrap justify-content-center">
-        <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
-        <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-              <div class="card-body">
-                <h5 class="card-title">Grocery Shopping</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis tempore rem consequuntur voluptatum, dolorum,
-                  reprehenderit quisquam pariatur, incidunt velit iste tenetur
-                  explicabo! Aut consequuntur blanditiis mollitia ea, at
-                  tempora.
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="assigned-to-label list-group-item">
-                  Assigned to: <span class="assignee">Marium</span>
-                </li>
-                <li class="list-group-item due-date-label">
-                  Due date: <span class="due-date">20/10/2020</span>
-                </li>
-                <li class="list-group-item status-label">
-                  Status: <span class="status">Complete</span>
-                </li>
-              </ul>
-              <div class="card-body">
-                <!-- Adding button -->
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="submit" class="btn btn-success">Edit</button>
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <!-- <a href="#" class="card-link">Another link</a> -->
-              </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
+          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+            <div class="card-body">
+              <h5 class="card-title">Grocery Shopping</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+                tempore rem consequuntur voluptatum, dolorum, reprehenderit
+                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+                consequuntur blanditiis mollitia ea, at tempora.
+              </p>
             </div>
-            <br />
-            <!-- Card 2 begins here-->
-
-             <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <div class="card-body">
-                <h5 class="card-title">Laundry</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis tempore rem consequuntur voluptatum, dolorum,
-                  reprehenderit quisquam pariatur, incidunt velit iste tenetur
-                  explicabo! Aut consequuntur blanditiis mollitia ea, at
-                  tempora.
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="assigned-to-label list-group-item">
-                  Assigned to: <span class="assignee">Marium</span>
-                </li>
-                <li class="list-group-item due-date-label">
-                  Due date: <span class="due-date">20/10/2020</span>
-                </li>
-                <li class="list-group-item status-label">
-                  Status: <span class="status">Complete</span>
-                </li>
-              </ul>
-              <div class="card-body">
-                <!-- Adding button -->
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="submit" class="btn btn-success">Edit</button>
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <!-- <a href="#" class="card-link">Another link</a> -->
-              </div>
+            <ul class="list-group list-group-flush">
+              <li class="assigned-to-label list-group-item">
+                Assigned to:
+                <span class="assignee">Marium</span>
+              </li>
+              <li class="list-group-item due-date-label">
+                Due date:
+                <span class="due-date">20/10/2020</span>
+              </li>
+              <li class="list-group-item status-label">
+                Status:
+                <span class="status">Complete</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <!-- Adding button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-success">Edit</button>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <!-- <a href="#" class="card-link">Another link</a> -->
             </div>
-            <br />
+          </div>
+          <br />
+          <!-- Card 2 begins here-->
 
-             <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <div class="card-body">
-                <h5 class="card-title">Change Internet provider</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis tempore rem consequuntur voluptatum, dolorum,
-                  reprehenderit quisquam pariatur, incidunt velit iste tenetur
-                  explicabo! Aut consequuntur blanditiis mollitia ea, at
-                  tempora.
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="assigned-to-label list-group-item">
-                  Assigned to: <span class="assignee">Marium</span>
-                </li>
-                <li class="list-group-item due-date-label">
-                  Due date: <span class="due-date">20/10/2020</span>
-                </li>
-                <li class="list-group-item status-label">
-                  Status: <span class="status">Complete</span>
-                </li>
-              </ul>
-              <div class="card-body">
-                <!-- Adding button -->
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="submit" class="btn btn-success">Edit</button>
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <!-- <a href="#" class="card-link">Another link</a> -->
-              </div>
+          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+              <h5 class="card-title">Laundry</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+                tempore rem consequuntur voluptatum, dolorum, reprehenderit
+                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+                consequuntur blanditiis mollitia ea, at tempora.
+              </p>
             </div>
-            <br />
-            <!-- Card 4 begins here -->
-
-             <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <div class="card-body">
-                <h5 class="card-title">Dentist appointment</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis tempore rem consequuntur voluptatum, dolorum,
-                  reprehenderit quisquam pariatur, incidunt velit iste tenetur
-                  explicabo! Aut consequuntur blanditiis mollitia ea, at
-                  tempora.
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="assigned-to-label list-group-item">
-                  Assigned to: <span class="assignee">Marium</span>
-                </li>
-                <li class="list-group-item due-date-label">
-                  Due date: <span class="due-date">20/10/2020</span>
-                </li>
-                <li class="list-group-item status-label">
-                  Status: <span class="status">Complete</span>
-                </li>
-              </ul>
-              <div class="card-body">
-                <!-- Adding button -->
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="submit" class="btn btn-success">Edit</button>
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <!-- <a href="#" class="card-link">Another link</a> -->
-              </div>
+            <ul class="list-group list-group-flush">
+              <li class="assigned-to-label list-group-item">
+                Assigned to:
+                <span class="assignee">Marium</span>
+              </li>
+              <li class="list-group-item due-date-label">
+                Due date:
+                <span class="due-date">20/10/2020</span>
+              </li>
+              <li class="list-group-item status-label">
+                Status:
+                <span class="status">Complete</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <!-- Adding button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-success">Edit</button>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <!-- <a href="#" class="card-link">Another link</a> -->
             </div>
-            <br />
-            <!-- card 5 begins here -->
+          </div>
+          <br />
 
-             <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-              <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-              <div class="card-body">
-                <h5 class="card-title">Group Studies</h5>
-                <p class="card-text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. A
-                  nobis tempore rem consequuntur voluptatum, dolorum,
-                  reprehenderit quisquam pariatur, incidunt velit iste tenetur
-                  explicabo! Aut consequuntur blanditiis mollitia ea, at
-                  tempora.
-                </p>
-              </div>
-              <ul class="list-group list-group-flush">
-                <li class="assigned-to-label list-group-item">
-                  Assigned to: <span class="assignee">Marium</span>
-                </li>
-                <li class="list-group-item due-date-label">
-                  Due date: <span class="due-date">20/10/2020</span>
-                </li>
-                <li class="list-group-item status-label">
-                  Status: <span class="status">Complete</span>
-                </li>
-              </ul>
-              <div class="card-body">
-                <!-- Adding button -->
-                <button type="button" class="btn btn-danger">Delete</button>
-                <button type="submit" class="btn btn-success">Edit</button>
-                <!-- <a href="#" class="card-link">Card link</a> -->
-                <!-- <a href="#" class="card-link">Another link</a> -->
-              </div>
+          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+              <h5 class="card-title">Change Internet provider</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+                tempore rem consequuntur voluptatum, dolorum, reprehenderit
+                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+                consequuntur blanditiis mollitia ea, at tempora.
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="assigned-to-label list-group-item">
+                Assigned to:
+                <span class="assignee">Marium</span>
+              </li>
+              <li class="list-group-item due-date-label">
+                Due date:
+                <span class="due-date">20/10/2020</span>
+              </li>
+              <li class="list-group-item status-label">
+                Status:
+                <span class="status">Complete</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <!-- Adding button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-success">Edit</button>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <!-- <a href="#" class="card-link">Another link</a> -->
+            </div>
+          </div>
+          <br />
+          <!-- Card 4 begins here -->
+
+          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+              <h5 class="card-title">Dentist appointment</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+                tempore rem consequuntur voluptatum, dolorum, reprehenderit
+                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+                consequuntur blanditiis mollitia ea, at tempora.
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="assigned-to-label list-group-item">
+                Assigned to:
+                <span class="assignee">Marium</span>
+              </li>
+              <li class="list-group-item due-date-label">
+                Due date:
+                <span class="due-date">20/10/2020</span>
+              </li>
+              <li class="list-group-item status-label">
+                Status:
+                <span class="status">Complete</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <!-- Adding button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-success">Edit</button>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <!-- <a href="#" class="card-link">Another link</a> -->
+            </div>
+          </div>
+          <br />
+          <!-- card 5 begins here -->
+
+          <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+              <h5 class="card-title">Group Studies</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. A nobis
+                tempore rem consequuntur voluptatum, dolorum, reprehenderit
+                quisquam pariatur, incidunt velit iste tenetur explicabo! Aut
+                consequuntur blanditiis mollitia ea, at tempora.
+              </p>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="assigned-to-label list-group-item">
+                Assigned to:
+                <span class="assignee">Marium</span>
+              </li>
+              <li class="list-group-item due-date-label">
+                Due date:
+                <span class="due-date">20/10/2020</span>
+              </li>
+              <li class="list-group-item status-label">
+                Status:
+                <span class="status">Complete</span>
+              </li>
+            </ul>
+            <div class="card-body">
+              <!-- Adding button -->
+              <button type="button" class="btn btn-danger">Delete</button>
+              <button type="submit" class="btn btn-success">Edit</button>
+              <!-- <a href="#" class="card-link">Card link</a> -->
+              <!-- <a href="#" class="card-link">Another link</a> -->
             </div>
           </div>
         </div>
