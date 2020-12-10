@@ -26,6 +26,7 @@ newTaskForm.addEventListener("submit", (event)  => {
 
   if (!validFormFieldInput(taskName)) {
       formErrorMessage.innerHTML = "Invalid name. Please correct.";
+      formErrorMessage.getElementsByClassName.display = "block";
   } else {
       formErrorMessage.getElementsByClassName.display = "none";
   }
@@ -34,6 +35,6 @@ newTaskForm.addEventListener("submit", (event)  => {
 
 // Validate data to ensure not empty string or null
 function validFormFieldInput(data) {
-    return (data !== null && data !== '');
+    return data !== null && data !== '';
 }
 
