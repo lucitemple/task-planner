@@ -163,7 +163,7 @@
                     <label for="newTaskDueDate" class="col-sm-3 col-form-label">
                       Due date
                     </label>
-                    <div class="col-sm-9">
+                    <div class="col-sm-9 date" id="disablePastDates">
                       <input
                         type="date"
                         class="form-control"
@@ -262,5 +262,14 @@
 
     <!-- JS page link -->
     <script src="js/index.js"></script>
+
+    <!-- Date picker: restrict to future dates-->
+<!--     <script type="text/javascript">
+      $(function () {
+        $("#disablePastDates").datetimepicker({
+          minDate: new Date(),
+        });
+      });
+    </script> -->
   </body>
 </html>
