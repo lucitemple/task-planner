@@ -108,6 +108,7 @@
                         type="text"
                         class="form-control"
                         id="newTaskNameInput"
+                        required 
                       />
                     </div>
                   </div>
@@ -124,6 +125,7 @@
                         type="text"
                         class="form-control"
                         id="newTaskAssignedTo"
+                        required
                       />
                     </div>
                   </div>
@@ -140,6 +142,7 @@
                         class="form-control"
                         rows="5"
                         id="newTaskDescription"
+                        required
                       ></textarea>
                     </div>
                   </div>
@@ -149,7 +152,7 @@
                       Status:
                     </label>
                     <div class="col-sm-9">
-                      <select class="form-control" id="newTaskStatus">
+                      <select class="form-control" id="newTaskStatus" required>
                         <option value="toDo">To do</option>
                         <option value="inProgress">In progress</option>
                         <option value="review">Review</option>
@@ -168,6 +171,7 @@
                         type="date"
                         class="form-control"
                         id="newTaskDueDate"
+                        required
                       />
                     </div>
                   </div>
