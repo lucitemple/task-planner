@@ -63,15 +63,15 @@ function validFormFieldInput(data) {
 
 //Validate date
 $(function () {
-  let maxDate = validatedate1();
+  let maxDate = validateDate();
   $("#newTaskDueDate").attr("min", maxDate);
-  //document.querySelector("#newTaskNameInput").focus();
+  document.querySelector("#newTaskDueDate").focus();
 });
 
-function validatedate1() {
+function validateDate() {
   var today = new Date();
-  var Tdd = today.getDate();
-  var Tmm = today.getMonth() + 1;
-  var Tyyyy = today.getFullYear();
-  return Tyyyy + "-" + Tmm + "-" + Tdd;
+  var dateToday = today.getDate();
+  var monthToday = today.getMonth() + 1;
+  var yearToday = today.getFullYear();
+  return yearToday + "-" + monthToday + "-" + dateToday;
 }
