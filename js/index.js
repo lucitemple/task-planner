@@ -24,19 +24,41 @@ newTaskForm.addEventListener('submit', (event)  => {
 
   const formErrorMessage = document.querySelector('#formErrorMessage');
 
-// If invalid data, error message.
+  // If invalid data, error message.
   if (!validFormFieldInput(taskName)) {
-      formErrorMessage.innerHTML = "Invalid task name. Please correct.";
-      formErrorMessage.style.display = "block";
-      formErrorMessage.style.color = "text-danger";
+    formErrorMessage.innerHTML = "Invalid task name. Please correct.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
   } else {
-      formErrorMessage.style.display = "none";
-  }
+    formErrorMessage.style.display = "none";
+  };
 
+  if (!validFormFieldInput(assignedTo)) {
+    formErrorMessage.innerHTML = "Please assign task.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } else {
+    formErrorMessage.style.display = "none";
+  };
+
+  if (!validFormFieldInput(taskDescription)) {
+    formErrorMessage.innerHTML = "Please input description.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } else {
+    formErrorMessage.style.display = "none";
+  };
+
+  if (!validFormFieldInput(taskStatus)) {
+    formErrorMessage.innerHTML = "Please assign status.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } else {
+    formErrorMessage.style.display = "none";
+  }
 });
 
 // Validate data to ensure not empty string or null
 function validFormFieldInput(data) {
     return data !== null && data !== '';
 }
-
