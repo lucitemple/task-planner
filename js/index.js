@@ -24,51 +24,32 @@ newTaskForm.addEventListener("submit", (event) => {
 
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
-  // validate date, error message
-  /* const dateFld = document.getElementById("newTaskDueDate");
-const todayDate= new Date();
-const dateValue = dateFld.value.trim() ? new Date(dateFld.value) : null;
-if (dateFld.value==null || dateValue < todayDate {
-  formErrorMessage.innerHTML = "Invalid date. Please correct.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
-  } else {
-    formErrorMessage.style.display = "none";
-  }; */
-
-  //const formErrorMessage = document.querySelector("#formErrorMessage");
-
   // If invalid data, error message.
   if (!validFormFieldInput(taskName)) {
     formErrorMessage.innerHTML = "Invalid task name. Please correct.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
-  } /* else {
-    formErrorMessage.style.display = "none";
-  } */
+  } 
+
   else if (!validFormFieldInput(assignedTo)) {
     formErrorMessage.innerHTML = "Please assign task.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
-  } /* else {
-    formErrorMessage.style.display = "none";
-  } */
+  } 
 
   else if (!validFormFieldInput(taskDescription)) {
     formErrorMessage.innerHTML = "Please input description.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
-  }/*  else {
-    formErrorMessage.style.display = "none";
-  } */
-
- else if (!validFormFieldInput(taskStatus)) {
-    formErrorMessage.innerHTML = "Please assign status.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
-  } else {
-    formErrorMessage.style.display = "none";
   }
+
+ else if (!validFormFieldInput(dueDate)) {
+   formErrorMessage.innerHTML = "Please assign due date.";
+   formErrorMessage.style.display = "block";
+   formErrorMessage.style.color = "text-danger";
+ } else {
+   formErrorMessage.style.display = "none";
+ }
 });
 
 // Validate data to ensure not empty string or null
@@ -76,24 +57,15 @@ function validFormFieldInput(data) {
   return data !== null && data !== "";
 }
 
-// Validate date
-/* $(function () {
-  $(".datepicker").datepicker({
-    minDate: new Date(),
-  });
-}); */
-
-//Validate date
-$(function () {
-  let maxDate = validateDate();
-  $("#newTaskDueDate").attr("min", maxDate);
-  document.querySelector("#newTaskDueDate").focus();
-});
-
+// Calendar - set to only take future dates
 function validateDate() {
   var today = new Date();
   var dateToday = today.getDate();
   var monthToday = today.getMonth() + 1;
   var yearToday = today.getFullYear();
-  return yearToday + "-" + monthToday + "-" + dateToday;
+  var minDate = yearToday + "-" + monthToday + "-" + dateToday;
+  newTaskDueDate.min = minDate;
 }
+
+// Need to make validateData to only run when called on click
+validateDate();
