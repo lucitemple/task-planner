@@ -22,11 +22,10 @@ newTaskForm.addEventListener("submit", (event) => {
   const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const dueDate = newTaskDueDate.value;
 
-
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
   // validate date, error message
-/* const dateFld = document.getElementById("newTaskDueDate");
+  /* const dateFld = document.getElementById("newTaskDueDate");
 const todayDate= new Date();
 const dateValue = dateFld.value.trim() ? new Date(dateFld.value) : null;
 if (dateFld.value==null || dateValue < todayDate {
@@ -42,6 +41,29 @@ if (dateFld.value==null || dateValue < todayDate {
   // If invalid data, error message.
   if (!validFormFieldInput(taskName)) {
     formErrorMessage.innerHTML = "Invalid task name. Please correct.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } /* else {
+    formErrorMessage.style.display = "none";
+  } */
+  else if (!validFormFieldInput(assignedTo)) {
+    formErrorMessage.innerHTML = "Please assign task.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } /* else {
+    formErrorMessage.style.display = "none";
+  } */
+
+  else if (!validFormFieldInput(taskDescription)) {
+    formErrorMessage.innerHTML = "Please input description.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  }/*  else {
+    formErrorMessage.style.display = "none";
+  } */
+
+ else if (!validFormFieldInput(taskStatus)) {
+    formErrorMessage.innerHTML = "Please assign status.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
   } else {
