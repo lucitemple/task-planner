@@ -29,27 +29,21 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.innerHTML = "Invalid task name. Please correct.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
-  } 
-
-  else if (!validFormFieldInput(assignedTo)) {
+  } else if (!validFormFieldInput(assignedTo)) {
     formErrorMessage.innerHTML = "Please assign task.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
-  } 
-
-  else if (!validFormFieldInput(taskDescription)) {
+  } else if (!validFormFieldInput(taskDescription)) {
     formErrorMessage.innerHTML = "Please input description.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
+  } else if (!validFormFieldInput(dueDate)) {
+    formErrorMessage.innerHTML = "Please assign due date.";
+    formErrorMessage.style.display = "block";
+    formErrorMessage.style.color = "text-danger";
+  } else {
+    formErrorMessage.style.display = "none";
   }
-
- else if (!validFormFieldInput(dueDate)) {
-   formErrorMessage.innerHTML = "Please assign due date.";
-   formErrorMessage.style.display = "block";
-   formErrorMessage.style.color = "text-danger";
- } else {
-   formErrorMessage.style.display = "none";
- }
 });
 
 // Validate data to ensure not empty string or null
@@ -58,7 +52,7 @@ function validFormFieldInput(data) {
 }
 
 // Calendar: future dates only, run on click
-newTaskDueDate.addEventListener("click", function() {
+newTaskDueDate.addEventListener("click", function () {
   let today = new Date();
   let dateToday = today.getDate();
   let monthToday = today.getMonth() + 1;
