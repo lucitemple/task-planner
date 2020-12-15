@@ -57,15 +57,12 @@ function validFormFieldInput(data) {
   return data !== null && data !== "";
 }
 
-// Calendar - set to only take future dates
-function validateDate() {
-  var today = new Date();
-  var dateToday = today.getDate();
-  var monthToday = today.getMonth() + 1;
-  var yearToday = today.getFullYear();
-  var minDate = yearToday + "-" + monthToday + "-" + dateToday;
+// Calendar: future dates only, run on click
+newTaskDueDate.addEventListener("click", function() {
+  let today = new Date();
+  let dateToday = today.getDate();
+  let monthToday = today.getMonth() + 1;
+  let yearToday = today.getFullYear();
+  let minDate = yearToday + "-" + monthToday + "-" + dateToday;
   newTaskDueDate.min = minDate;
-}
-
-// Need to make validateData to only run when called on click
-validateDate();
+});
