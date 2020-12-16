@@ -33,6 +33,7 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.innerHTML = "Please assign task.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
+    getFocus(newTaskAssignedTo);
   } else if (!validFormFieldInput(taskDescription)) {
     formErrorMessage.innerHTML = "Please input description.";
     formErrorMessage.style.display = "block";
@@ -60,3 +61,7 @@ newTaskDueDate.addEventListener("click", function () {
   let minDate = yearToday + "-" + monthToday + "-" + dateToday;
   newTaskDueDate.min = minDate;
 });
+
+function getFocus(inputID) {
+  document.getElementById(inputID).focus();
+};
