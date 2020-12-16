@@ -75,3 +75,7 @@ newTaskDueDate.addEventListener("click", function () {
 /* function getFocus(inputID) {
   document.getElementById(inputID).focus();
 }; */
+ newTaskNameInput.value = "";
+ newTaskDescription.value = "";
+ newTaskAssignedTo.value = "";
+ newTaskDueDate.value = "";
