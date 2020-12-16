@@ -1,7 +1,8 @@
-// Instantiate new TaskManager
+// Instantiate new instance of TaskManager
 const taskManager = new TaskManager();
 
-console.log(taskManager._tasks); //test
+taskManager.addTask('Clean kitchen', 'Tidy, sweep & mop floors', 'Ben', '2020-12-20');
+console.log(taskManager._tasks);
 
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");

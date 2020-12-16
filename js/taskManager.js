@@ -21,6 +21,9 @@ class TaskManager {
 }
 
 
-// create TaskManager
-const taskManager = new TaskManager();
-console.log(taskManager._tasks);
+
+// Instantiate new instance of TaskManager
+/* const taskManager = new TaskManager();
+
+taskManager.addTask('Clean kitchen', 'Tidy, sweep & mop floors', 'Ben', '2020-12-20');
+console.log(taskManager._tasks); */
