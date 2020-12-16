@@ -51,6 +51,9 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.style.display = "none";
     // send validated values to TaskManager
     taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
+    // reset form
+    document.querySelector("#newTaskForm").reset();
+
   }
 });
 
@@ -69,6 +72,6 @@ newTaskDueDate.addEventListener("click", function () {
   newTaskDueDate.min = minDate;
 });
 
-function getFocus(inputID) {
+/* function getFocus(inputID) {
   document.getElementById(inputID).focus();
-};
+}; */
