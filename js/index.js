@@ -1,3 +1,8 @@
+// Instantiate new instance of TaskManager
+const taskManager = new TaskManager();
+
+console.log(taskManager._tasks);
+
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 
@@ -33,6 +38,7 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.innerHTML = "Please assign task.";
     formErrorMessage.style.display = "block";
     formErrorMessage.style.color = "text-danger";
+    getFocus(newTaskAssignedTo);
   } else if (!validFormFieldInput(taskDescription)) {
     formErrorMessage.innerHTML = "Please input description.";
     formErrorMessage.style.display = "block";
@@ -43,6 +49,8 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.style.color = "text-danger";
   } else {
     formErrorMessage.style.display = "none";
+    // send validated values to TaskManager
+    taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
   }
 });
 
@@ -60,3 +68,7 @@ newTaskDueDate.addEventListener("click", function () {
   let minDate = yearToday + "-" + monthToday + "-" + dateToday;
   newTaskDueDate.min = minDate;
 });
+
+function getFocus(inputID) {
+  document.getElementById(inputID).focus();
+};
