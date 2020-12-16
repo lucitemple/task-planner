@@ -1,7 +1,6 @@
 // Instantiate new instance of TaskManager
 const taskManager = new TaskManager();
 
-taskManager.addTask('Clean kitchen', 'Tidy, sweep & mop floors', 'Ben', '2020-12-20');
 console.log(taskManager._tasks);
 
 // Select the New Task Form
@@ -50,6 +49,8 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.style.color = "text-danger";
   } else {
     formErrorMessage.style.display = "none";
+    // send validated values to TaskManager
+    taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
   }
 });
 
