@@ -1,9 +1,9 @@
 //  Function, createTaskHtml
-const createTaskHtml = (taskName, taskDescription, assignTo, dueDate, status) =>
+const createTaskHtml = (id, taskName, taskDescription, assignTo, dueDate, status) =>
   //cardTemplate.innerHTML=
 
   `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-          <div class="card-body">
+          <div class="card-body" data-task-id=${id}>
             <h5 class="card-title">${taskName}</h5>
             <p class="card-text">
               ${taskDescription}
@@ -25,8 +25,9 @@ const createTaskHtml = (taskName, taskDescription, assignTo, dueDate, status) =>
           </ul>
        <div class="card-body">
       <!-- Buttons -->
+            <button type="button" class="btn btn-success done-button" ">Done</button>
             <button type="button" class="btn btn-danger">Delete</button>
-            <button type="button" class="btn btn-success">Edit</button>
+            <button type="button" class="btn btn-primary">Edit</button>
           </div>
         </div>
       </div>`;
@@ -68,6 +69,7 @@ class TaskManager {
 
       // Create variable to store the html of current task
       const taskHtml = createTaskHtml(
+        newTask.id,
         newTask.taskName,
         newTask.taskDescription,
         newTask.assignedTo,
@@ -84,3 +86,4 @@ class TaskManager {
 
 //const cardTemplate = document.querySelector("#cardTemplate");
 const cardContainer = document.querySelector("#card-container");
+

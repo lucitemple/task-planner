@@ -88,6 +88,14 @@ newTaskDueDate.addEventListener("click", function () {
   document.getElementById(inputID).focus();
 }; */
 
+//const cardTemplate = document.querySelector("#cardTemplate");
+//const  = document.querySelector("#cardTemplate");
 
+ // When done button clicked mark task done
+cardContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains('done-button')) {
+    const parentTask = event.target.parentElement.parentElement;
+    console.log(parentTask);
 
- 
+  }
+} )
