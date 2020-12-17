@@ -1,12 +1,12 @@
 //  Function, createTaskHtml
-const createTaskHtml = (name, description, assignTo, dueDate, status) =>
+const createTaskHtml = (taskName, taskDescription, assignTo, dueDate, status) =>
   //cardTemplate.innerHTML=
 
-  ` <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+  `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
           <div class="card-body">
-            <h5 class="card-title">${name}</h5>
+            <h5 class="card-title">${taskName}</h5>
             <p class="card-text">
-              ${description}
+              ${taskDescription}
             </p>
           </div>
           <ul class="list-group list-group-flush">
@@ -31,7 +31,6 @@ const createTaskHtml = (name, description, assignTo, dueDate, status) =>
         </div>
       </div>`;
 
-
 // TaskManager class
 class TaskManager {
   constructor(currentId = "0") {
@@ -39,12 +38,12 @@ class TaskManager {
     this._currentId = currentId;
   }
   // Method for adding tasks
-  addTask(taskName, assignedTo, taskDescription, dueDate) {
+  addTask(taskName, taskDescription, assignedTo, dueDate) {
     const newTask = {
       id: this._currentId++,
       taskName: taskName,
-      assignedTo: assignedTo,
       taskDescription: taskDescription,
+      assignedTo: assignedTo,
       dueDate: dueDate,
       status: "TODO",
     };
@@ -52,33 +51,36 @@ class TaskManager {
   }
   // Create render method
   render() {
+    // Creating variable to store task html
+    const tasksHtmlList = [];
 
-  // Creating variable task html
-  const tasksHtmlList = [];
-  for (let i=0;i<this._tasks.length;i++){
+    // Loop over tasks to create html & store in array
+    for (let i = 0; i < this._tasks.length; i++) {
+      // Store the current task in a variable
+      const newTask = this._tasks[i];
 
-  // Store the current task in a variable
-    const newTask = this._tasks[i];
+      // Create date variable to store formatted date
+      const date = new Date(newTask.dueDate);
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let formattedDate = `${day}/${month}/${year}`;
 
-  // Create date variable
-    const date = new Date(this._tasks.dueDate);
-
-  // Creating a formatted date variable
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let formattedDate = `${day}/${month}/${year}`;
-  
-  // Create variable to store the html of current task
-    const taskHtml = createTaskHtml(newTask.taskName, newTask.assignedTo, newTask.taskDescription, newTask.formattedDate, newTask.status);
-    tasksHtmlList.push(taskHtml);
-  } 
-  // Create a variable to join task to html string
-    const tasksHtml = tasksHtmlList.join('\n');
-    cardTemplate.innerHTML = tasksHtml;
+      // Create variable to store the html of current task
+      const taskHtml = createTaskHtml(
+        newTask.taskName,
+        newTask.taskDescription,
+        newTask.assignedTo,
+        formattedDate,
+        newTask.status
+      );
+      tasksHtmlList.push(taskHtml);
+    }
+    // Create a variable to join task to html string
+    const tasksHtml = tasksHtmlList.join("\n");
+    cardContainer.innerHTML = tasksHtml; //cardTemplare
   }
 }
 
-
-const cardTemplate = document.querySelector("#cardTemplate");
-
+//const cardTemplate = document.querySelector("#cardTemplate");
+const cardContainer = document.querySelector("#card-container");

@@ -50,13 +50,23 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     formErrorMessage.style.display = "none";
     // send validated values to TaskManager
-    taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
+    taskManager.addTask(
+      taskName,
+      taskDescription,
+      assignedTo,
+      dueDate
+    );
     // Call render method to push tasks to html
     taskManager.render();
     // reset form
     document.querySelector("#newTaskForm").reset();
 
   }
+  // Clear form
+/*    newTaskNameInput.value = "";
+   newTaskDescription.value = "";
+   newTaskAssignedTo.value = "";
+   newTaskDueDate.value = ""; */
 });
 
 // Validate data to ensure not empty string or null
@@ -77,10 +87,7 @@ newTaskDueDate.addEventListener("click", function () {
 /* function getFocus(inputID) {
   document.getElementById(inputID).focus();
 }; */
- newTaskNameInput.value = "";
- newTaskDescription.value = "";
- newTaskAssignedTo.value = "";
- newTaskDueDate.value = "";
+
 
 
  
