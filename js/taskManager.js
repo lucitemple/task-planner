@@ -1,12 +1,12 @@
 //  Function, createTaskHtml
-const createTaskHtml = (name, description, assignTo, dueDate, status) =>
+const createTaskHtml = (taskName, taskDescription, assignTo, dueDate, status) =>
   //cardTemplate.innerHTML=
 
   ` <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
           <div class="card-body">
-            <h5 class="card-title">${name}</h5>
+            <h5 class="card-title">${taskName}</h5>
             <p class="card-text">
-              ${description}
+              ${taskDescription}
             </p>
           </div>
           <ul class="list-group list-group-flush">
@@ -51,16 +51,16 @@ class TaskManager {
   }
   // Create render method
   render() {
-    // Creating variable task html
+    // Creating variable to store task html
     const tasksHtmlList = [];
+
+    // Loop over tasks to create html & store in array
     for (let i = 0; i < this._tasks.length; i++) {
       // Store the current task in a variable
       const newTask = this._tasks[i];
 
-      // Create date variable
-      const date = new Date(this._tasks.dueDate);
-
-      // Creating a formatted date variable
+      // Create date variable to store formatted date
+      const date = new Date(newTask.dueDate);
       let day = date.getDate();
       let month = date.getMonth() + 1;
       let year = date.getFullYear();
@@ -71,7 +71,7 @@ class TaskManager {
         newTask.taskName,
         newTask.assignedTo,
         newTask.taskDescription,
-        newTask.dueDate, // .formattedDate ?
+        formattedDate,
         newTask.status
       );
       tasksHtmlList.push(taskHtml);
