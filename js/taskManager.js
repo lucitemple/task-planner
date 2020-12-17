@@ -31,7 +31,6 @@ const createTaskHtml = (name, description, assignTo, dueDate, status) =>
         </div>
       </div>`;
 
-
 // TaskManager class
 class TaskManager {
   constructor(currentId = "0") {
@@ -52,33 +51,35 @@ class TaskManager {
   }
   // Create render method
   render() {
+    // Creating variable task html
+    const tasksHtmlList = [];
+    for (let i = 0; i < this._tasks.length; i++) {
+      // Store the current task in a variable
+      const newTask = this._tasks[i];
 
-  // Creating variable task html
-  const tasksHtmlList = [];
-  for (let i=0;i<this._tasks.length;i++){
+      // Create date variable
+      const date = new Date(this._tasks.dueDate);
 
-  // Store the current task in a variable
-    const newTask = this._tasks[i];
+      // Creating a formatted date variable
+      let day = date.getDate();
+      let month = date.getMonth() + 1;
+      let year = date.getFullYear();
+      let formattedDate = `${day}/${month}/${year}`;
 
-  // Create date variable
-    const date = new Date(this._tasks.dueDate);
-
-  // Creating a formatted date variable
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let formattedDate = `${day}/${month}/${year}`;
-  
-  // Create variable to store the html of current task
-    const taskHtml = createTaskHtml(newTask.taskName, newTask.assignedTo, newTask.taskDescription, newTask.formattedDate, newTask.status);
-    tasksHtmlList.push(taskHtml);
-  } 
-  // Create a variable to join task to html string
-    const tasksHtml = tasksHtmlList.join('\n');
+      // Create variable to store the html of current task
+      const taskHtml = createTaskHtml(
+        newTask.taskName,
+        newTask.assignedTo,
+        newTask.taskDescription,
+        newTask.formattedDate,
+        newTask.status
+      );
+      tasksHtmlList.push(taskHtml);
+    }
+    // Create a variable to join task to html string
+    const tasksHtml = tasksHtmlList.join("\n");
     cardTemplate.innerHTML = tasksHtml;
   }
 }
 
-
 const cardTemplate = document.querySelector("#cardTemplate");
-
