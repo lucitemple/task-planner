@@ -71,7 +71,7 @@ class TaskManager {
         newTask.taskName,
         newTask.assignedTo,
         newTask.taskDescription,
-        newTask.formattedDate,
+        newTask.dueDate, // .formattedDate ?
         newTask.status
       );
       tasksHtmlList.push(taskHtml);
