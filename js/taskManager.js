@@ -1,9 +1,8 @@
 //  Function, createTaskHtml
-const createTaskHtml=(name,description,assignTo,dueDate,status)=>
-//cardTemplate.innerHTML=
- 
-      
-        ` <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+const createTaskHtml = (name, description, assignTo, dueDate, status) =>
+  //cardTemplate.innerHTML=
+
+  ` <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title">${name}</h5>
             <p class="card-text">
@@ -24,7 +23,13 @@ const createTaskHtml=(name,description,assignTo,dueDate,status)=>
               <span class="status">${status}</span>
             </li>
           </ul>
-      </div>`
+       <div class="card-body">
+      <!-- Buttons -->
+            <button type="button" class="btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-success">Edit</button>
+          </div>
+        </div>
+      </div>`;
 
 
 // TaskManager class
