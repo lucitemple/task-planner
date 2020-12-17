@@ -79,3 +79,8 @@ newTaskDueDate.addEventListener("click", function () {
  newTaskDescription.value = "";
  newTaskAssignedTo.value = "";
  newTaskDueDate.value = "";
+
+
+ const taskHtml=createTaskHtml("shopping","jdhjwdhjsdhjd","marium","2020-03-12","Done");
+ console.log(taskHtml);
+ 
