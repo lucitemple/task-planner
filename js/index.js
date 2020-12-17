@@ -57,6 +57,11 @@ newTaskForm.addEventListener("submit", (event) => {
     document.querySelector("#newTaskForm").reset();
 
   }
+  // Clear form
+/*    newTaskNameInput.value = "";
+   newTaskDescription.value = "";
+   newTaskAssignedTo.value = "";
+   newTaskDueDate.value = ""; */
 });
 
 // Validate data to ensure not empty string or null
@@ -77,10 +82,7 @@ newTaskDueDate.addEventListener("click", function () {
 /* function getFocus(inputID) {
   document.getElementById(inputID).focus();
 }; */
- newTaskNameInput.value = "";
- newTaskDescription.value = "";
- newTaskAssignedTo.value = "";
- newTaskDueDate.value = "";
+
 
 
  

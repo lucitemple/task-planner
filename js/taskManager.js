@@ -2,7 +2,7 @@
 const createTaskHtml = (taskName, taskDescription, assignTo, dueDate, status) =>
   //cardTemplate.innerHTML=
 
-  ` <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
+  `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
           <div class="card-body">
             <h5 class="card-title">${taskName}</h5>
             <p class="card-text">
@@ -78,8 +78,9 @@ class TaskManager {
     }
     // Create a variable to join task to html string
     const tasksHtml = tasksHtmlList.join("\n");
-    cardTemplate.innerHTML = tasksHtml;
+    cardContainer.innerHTML = tasksHtml;  //cardTemplare
   }
 }
 
-const cardTemplate = document.querySelector("#cardTemplate");
+//const cardTemplate = document.querySelector("#cardTemplate");
+const cardContainer = document.querySelector("#card-container");
