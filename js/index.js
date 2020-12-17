@@ -51,6 +51,8 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.style.display = "none";
     // send validated values to TaskManager
     taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
+    // Call render method to push tasks to html
+    taskManager.render();
     // reset form
     document.querySelector("#newTaskForm").reset();
 
@@ -81,6 +83,4 @@ newTaskDueDate.addEventListener("click", function () {
  newTaskDueDate.value = "";
 
 
- const taskHtml=createTaskHtml("shopping","jdhjwdhjsdhjd","marium","2020-03-12","Done");
- console.log(taskHtml);
  
