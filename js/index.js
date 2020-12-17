@@ -50,7 +50,12 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     formErrorMessage.style.display = "none";
     // send validated values to TaskManager
-    taskManager.addTask(taskName, assignedTo, taskDescription, dueDate);
+    taskManager.addTask(
+      taskName,
+      taskDescription,
+      assignedTo,
+      dueDate
+    );
     // Call render method to push tasks to html
     taskManager.render();
     // reset form

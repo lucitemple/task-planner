@@ -38,12 +38,12 @@ class TaskManager {
     this._currentId = currentId;
   }
   // Method for adding tasks
-  addTask(taskName, assignedTo, taskDescription, dueDate) {
+  addTask(taskName, taskDescription, assignedTo, dueDate) {
     const newTask = {
       id: this._currentId++,
       taskName: taskName,
-      assignedTo: assignedTo,
       taskDescription: taskDescription,
+      assignedTo: assignedTo,
       dueDate: dueDate,
       status: "TODO",
     };
@@ -69,8 +69,8 @@ class TaskManager {
       // Create variable to store the html of current task
       const taskHtml = createTaskHtml(
         newTask.taskName,
-        newTask.assignedTo,
         newTask.taskDescription,
+        newTask.assignedTo,
         formattedDate,
         newTask.status
       );
@@ -78,7 +78,7 @@ class TaskManager {
     }
     // Create a variable to join task to html string
     const tasksHtml = tasksHtmlList.join("\n");
-    cardContainer.innerHTML = tasksHtml;  //cardTemplare
+    cardContainer.innerHTML = tasksHtml; //cardTemplare
   }
 }
 
