@@ -101,7 +101,7 @@ cardContainer.addEventListener("click", (event) => {
    const taskId=Number(parentTask.dataset.taskId);
   
    const task = taskManager.getTaskById(taskId);
-  task.taskStatus='DONE';
+  task.status='DONE';
   taskManager.render();
 
   }

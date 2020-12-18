@@ -1,9 +1,16 @@
 //  Function, createTaskHtml
-const createTaskHtml = (id, taskName, taskDescription, assignTo, dueDate, status) =>
+const createTaskHtml = (
+  id,
+  taskName,
+  taskDescription,
+  assignTo,
+  dueDate,
+  status
+) =>
   //cardTemplate.innerHTML=
 
-  `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem">
-          <div class="card-body" data-task-id=${id}>
+  `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem" data-task-id=${id}>
+          <div class="card-body" >
             <h5 class="card-title">${taskName}</h5>
             <p class="card-text">
               ${taskDescription}
@@ -24,8 +31,10 @@ const createTaskHtml = (id, taskName, taskDescription, assignTo, dueDate, status
             </li>
           </ul>
        <div class="card-body">
-      <!-- Buttons -->
-            <button type="button" class="btn btn-success done-button" ">Done</button>
+     
+      <button class="btn btn-success done-button ${
+        status === "TODO" ? "visible" : "invisible"
+      }">Done</button>
             <button type="button" class="btn btn-danger">Delete</button>
             <button type="button" class="btn btn-primary">Edit</button>
           </div>
@@ -56,7 +65,7 @@ class TaskManager {
 
     for (let i = 0; i <this._tasks.length; i++) {
       const task = this._tasks[i];
-      if (taskId === newTask.id) {
+      if (taskId === task.id) {
         foundTask = task;
       }
     }
