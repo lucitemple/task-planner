@@ -95,11 +95,11 @@ newTaskDueDate.addEventListener("click", function () {
 cardContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains('done-button')) {
     const parentTask = event.target.parentElement.parentElement;
-    alert(parentTask);
+    
    //creating a taskid variable
 
    const taskId=Number(parentTask.dataset.taskId);
-  alert(taskId);
+  
    const task = taskManager.getTaskById(taskId);
   task.status='DONE';
   taskManager.render();
