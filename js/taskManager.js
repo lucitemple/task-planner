@@ -50,6 +50,18 @@ class TaskManager {
     };
     this._tasks.push(newTask);
   }
+  // Create method to get task by id
+  getTaskById(taskId) {
+    let foundTask;
+
+    for (let i = 0; i <this._tasks.length; i++) {
+      const task = this._tasks[i];
+      if (taskId === newTask.id) {
+        foundTask = task;
+      }
+    }
+    return foundTask;
+  }
   // Create render method
   render() {
     // Creating variable to store task html
@@ -81,6 +93,8 @@ class TaskManager {
     // Create a variable to join task to html string
     const tasksHtml = tasksHtmlList.join("\n");
     cardContainer.innerHTML = tasksHtml; //cardTemplare
+
+  
   }
 }
 
