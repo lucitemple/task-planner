@@ -105,7 +105,17 @@ cardContainer.addEventListener("click", (event) => {
 
     const task = taskManager.getTaskById(taskId);
     task.status = "DONE";
+    taskManager.save();
     taskManager.render();
   }
-
+if(event.target.classList.contains("delete-button"))
+{
+  const parentTask = event.target.parentElement.parentElement;
+  const taskId = Number(parentTask.dataset.taskId);
+  console.log("taskid"+taskId);
+  taskManager.deleteTask(taskId);
+  taskManager.save();
+  taskManager.render();
+  console.log("testing");
+}
 } )
