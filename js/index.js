@@ -3,6 +3,10 @@ const taskManager = new TaskManager();
 
 console.log(taskManager._tasks);
 
+// call load & render methods
+taskManager.load();
+taskManager.render();
+
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
 
@@ -50,17 +54,16 @@ newTaskForm.addEventListener("submit", (event) => {
   } else {
     formErrorMessage.style.display = "none";
     // send validated values to TaskManager
-    taskManager.addTask(
-      taskName,
-      taskDescription,
-      assignedTo,
-      dueDate
-    );
+    taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
+
+  
     // Call render method to push tasks to html
     taskManager.render();
+    // T8. call taskManager.save() to save task to localStorage
+    taskManager.save();
+
     // reset form
     document.querySelector("#newTaskForm").reset();
-
   }
   // Clear form
 /*    newTaskNameInput.value = "";
@@ -93,16 +96,16 @@ newTaskDueDate.addEventListener("click", function () {
 
  // When done button clicked mark task done
 cardContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains('done-button')) {
+  if (event.target.classList.contains("done-button")) {
     const parentTask = event.target.parentElement.parentElement;
-    
-   //creating a taskid variable
 
-   const taskId=Number(parentTask.dataset.taskId);
-  
-   const task = taskManager.getTaskById(taskId);
-  task.status='DONE';
-  taskManager.render();
+    //creating a taskid variable
 
+    const taskId = Number(parentTask.dataset.taskId);
+
+    const task = taskManager.getTaskById(taskId);
+    task.status = "DONE";
+    taskManager.render();
   }
+
 } )
