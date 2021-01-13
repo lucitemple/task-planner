@@ -58,12 +58,14 @@ class TaskManager {
       status: "TODO",
     };
     this._tasks.push(newTask);
+    // T8. call taskManager.save() to save task to localStorage
+    //taskManager.save();
   }
   // Create method to get task by id
   getTaskById(taskId) {
     let foundTask;
 
-    for (let i = 0; i <this._tasks.length; i++) {
+    for (let i = 0; i < this._tasks.length; i++) {
       const task = this._tasks[i];
       if (taskId === task.id) {
         foundTask = task;
@@ -101,12 +103,47 @@ class TaskManager {
     }
     // Create a variable to join task to html string
     const tasksHtml = tasksHtmlList.join("\n");
-    cardContainer.innerHTML = tasksHtml; //cardTemplare
-
-  
+    cardContainer.innerHTML = tasksHtml; //cardTemplate
   }
+
+  // T8. Save method to save current this.tasks to localStorage
+  save() {
+    let tasksJson = JSON.stringify(this._tasks); // create JSON string of tasks
+    // Store the JSON string in localStorage under the key tasks using localStorage.setItem()
+    localStorage.setItem("tasks", tasksJson);
+    // Convert the this.currentId to a string and store it in a new variable, currentId.
+    let currentId = String(this._currentId);
+    // Store the currentId variable in localStorage under the key currentId using localStorage.setItem().
+    localStorage.setItem("currentId", currentId); // or does currentId need to be stringified?
+  }
+
+/*   //In js/taskManager.js, add a new method called load. This method doesn't require any parameters.
+  load() {
+    //check if any tasks are saved in localStorage with localStorage.getItem().
+    if (localStorage.getItem("tasks") !== null) {
+      // get the JSON string of tasks stored in localStorage with localStorage.getItem(), making sure to pass the key we used to save the tasks, tasks. Store this string into a new variable, tasksJson.
+      let tasksJson = JSON.stringify(localStorage.getItem("tasks"));
+      // Check if the currentId is saved in localStorage with localStorage.getItem().
+      if (localStorage.getItem("this._currentId") !== null) {
+        let currentId = localStorage.getItem("this._currentId"); //get the currentId in localStorage using localStorage.getItem() and store it in a new variable, currentId.
+        this._currentId = parseInt("currentId"); //Convert the currentId to a number before storing it to the TaskManager's this.currentId
+        console.log("testing load method");
+      };
+    };
+  } */
+   load () {
+     if (localStorage.getItem("tasks")) {
+       const tasksJson = localStorage.getItem("tasks");
+       this._tasks = JSON.parse(tasksJson);
+     }
+     if (localStorage.getItem("currentId")) {
+        const currentId = localStorage.getItem("currentId"); //get the currentId in localStorage using localStorage.getItem() and store it in a new variable, currentId.
+        this._currentId = Number(currentId); //Convert the currentId to a number before storing it to the TaskManager's this.currentId
+        console.log("testing load method");
+      }
+   }
+
 }
 
 //const cardTemplate = document.querySelector("#cardTemplate");
 const cardContainer = document.querySelector("#card-container");
-
