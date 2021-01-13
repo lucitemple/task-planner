@@ -120,3 +120,10 @@ if(event.target.classList.contains("delete-button"))
   
 }
 } )
+
+// Module exports
+module.exports = {
+  addTask,
+  deleteTask,
+  getTaskById
+};

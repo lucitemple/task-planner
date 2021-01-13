@@ -168,3 +168,10 @@ class TaskManager {
 
 //const cardTemplate = document.querySelector("#cardTemplate");
 const cardContainer = document.querySelector("#card-container");
+
+// Module exports
+module.exports = {
+  addTask,
+  deleteTask,
+  getTaskById
+};
