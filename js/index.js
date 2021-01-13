@@ -110,12 +110,13 @@ cardContainer.addEventListener("click", (event) => {
   }
 if(event.target.classList.contains("delete-button"))
 {
+  alert("delete");
   const parentTask = event.target.parentElement.parentElement;
   const taskId = Number(parentTask.dataset.taskId);
-  console.log("taskid"+taskId);
+  alert("taskid"+taskId);
   taskManager.deleteTask(taskId);
   taskManager.save();
   taskManager.render();
-  console.log("testing");
+  
 }
 } )

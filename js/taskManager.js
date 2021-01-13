@@ -35,7 +35,7 @@ const createTaskHtml = (
       <button class="btn btn-success done-button ${
         status === "TODO" ? "visible" : "invisible"
       }">Done</button>
-            <button type="button" class="delete-button btn btn-danger">Delete</button>
+            <button type="button" class="btn btn-danger delete-button ">Delete</button>
 
             <button type="button" class="btn btn-primary">Edit</button>
           </div>
@@ -64,12 +64,15 @@ class TaskManager {
   }
   //  deleteTask method on the TaskManager class. It should take one parameter, taskId, the id of the task we want deleted.
   deleteTask(taskId) {
+    alert("taskId delete function" + taskId);
     //n the deleteTask method, create an empty array and store it in a new variable, newTasks
     const newTasks = [];
     {
+      alert("this._tasks.length:" + this._tasks.length);
       //Get the current task in the loop, store it in a variable, task.
-      for (let i = 0; i > this._tasks.length; i++) {
+      for (let i = 0; i < this._tasks.length; i++) {
         let task = this._tasks[i];
+        alert(task.id + "== " + taskId);
         //Check if task.id is not equal to the taskId passed as a parameter.
         if (task.id !== taskId) {
           //If the task.id is not equal to the taskId, push the task into the newTasks array.
