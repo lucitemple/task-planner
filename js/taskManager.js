@@ -64,11 +64,9 @@ class TaskManager {
   }
   //  deleteTask method on the TaskManager class. It should take one parameter, taskId, the id of the task we want deleted.
   deleteTask(taskId) {
-    alert("taskId delete function" + taskId);
     //n the deleteTask method, create an empty array and store it in a new variable, newTasks
     const newTasks = [];
     {
-      alert("this._tasks.length:" + this._tasks.length);
       //Get the current task in the loop, store it in a variable, task.
       for (let i = 0; i < this._tasks.length; i++) {
         let task = this._tasks[i];
@@ -166,12 +164,7 @@ class TaskManager {
   }
 }
 
-//const cardTemplate = document.querySelector("#cardTemplate");
-const cardContainer = document.querySelector("#card-container");
+
 
 // Module exports
-module.exports = {
-  addTask,
-  deleteTask,
-  getTaskById
-};
+module.exports = TaskManager;

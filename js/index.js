@@ -1,3 +1,6 @@
+////const cardTemplate = document.querySelector("#cardTemplate");
+const cardContainer = document.querySelector("#card-container");
+
 // Instantiate new instance of TaskManager
 const taskManager = new TaskManager();
 
@@ -121,9 +124,4 @@ if(event.target.classList.contains("delete-button"))
 }
 } )
 
-// Module exports
-module.exports = {
-  addTask,
-  deleteTask,
-  getTaskById
-};
+

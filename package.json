@@ -1,0 +1,25 @@
+{
+  "name": "task-planner",
+  "version": "1.0.0",
+  "description": "Task Planner for GA group work assessment",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucitemple/task-planner.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lucitemple/task-planner/issues"
+  },
+  "homepage": "https://github.com/lucitemple/task-planner#readme",
+  "dependencies": {
+    "mocha": "^8.2.1"
+  }
+}
