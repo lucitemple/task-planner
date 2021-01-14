@@ -70,7 +70,6 @@ class TaskManager {
       //Get the current task in the loop, store it in a variable, task.
       for (let i = 0; i < this._tasks.length; i++) {
         let task = this._tasks[i];
-        alert(task.id + "== " + taskId);
         //Check if task.id is not equal to the taskId passed as a parameter.
         if (task.id !== taskId) {
           //If the task.id is not equal to the taskId, push the task into the newTasks array.
