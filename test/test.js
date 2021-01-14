@@ -31,9 +31,15 @@ describe("Task Manager functions", () => {
     };
     const result = taskManager.getTaskById(1);
     assert.deepStrictEqual(result, expected);
-
   });
 
+  //Test that TaskManager is initialized, ie: the constructor being called when a new TaskManager() is initialized.
 
+  it("Should call the constructor when a new TaskManager is initialized", () => {
+    const testTaskManager =  new TaskManager();
+    const expected = [];
+    const result = testTaskManager._tasks; 
+    assert.deepStrictEqual(result, expected);
 
+  });
 });
