@@ -1,10 +1,8 @@
-////const cardTemplate = document.querySelector("#cardTemplate");
+//const cardTemplate = document.querySelector("#cardTemplate");
 const cardContainer = document.querySelector("#card-container");
 
 // Instantiate new instance of TaskManager
 const taskManager = new TaskManager();
-
-console.log(taskManager._tasks);
 
 // call load & render methods
 taskManager.load();
@@ -12,6 +10,8 @@ taskManager.render();
 
 // Select the New Task Form
 const newTaskForm = document.querySelector("#newTaskForm");
+// Select date
+const newTaskDueDate = document.querySelector("#newTaskDueDate");
 
 // Add event listener for form submission
 newTaskForm.addEventListener("submit", (event) => {
@@ -31,7 +31,7 @@ newTaskForm.addEventListener("submit", (event) => {
   const newTaskStatus = document.querySelector("#newTaskStatus");
   const taskStatus = newTaskStatus.value;
 
-  const newTaskDueDate = document.querySelector("#newTaskDueDate");
+  //const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const dueDate = newTaskDueDate.value;
 
   const formErrorMessage = document.querySelector("#formErrorMessage");
@@ -60,9 +60,9 @@ newTaskForm.addEventListener("submit", (event) => {
     taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
 
   
-    // Call render method to push tasks to html
+    // Call taskManager render method to push tasks to html
     taskManager.render();
-    // T8. call taskManager.save() to save task to localStorage
+    // Call taskManager.save() to save task to localStorage
     taskManager.save();
 
     // reset form
@@ -83,11 +83,14 @@ function validFormFieldInput(data) {
 // Calendar: future dates only, run on click
 newTaskDueDate.addEventListener("click", function () {
   let today = new Date();
+  let minsToday = today.getMinutes();
+  let hourToday = today.getHours();
   let dateToday = today.getDate();
   let monthToday = today.getMonth() + 1;
   let yearToday = today.getFullYear();
-  let minDate = yearToday + "-" + monthToday + "-" + dateToday;
+  let minDate = `${yearToday}-${monthToday}-${dateToday}T${hourToday}:${minsToday}`;
   newTaskDueDate.min = minDate;
+  //`alert("minDate " + minDate);
 });
 
 /* function getFocus(inputID) {
@@ -101,22 +104,17 @@ newTaskDueDate.addEventListener("click", function () {
 cardContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("done-button")) {
     const parentTask = event.target.parentElement.parentElement;
-
-    //creating a taskid variable
-
     const taskId = Number(parentTask.dataset.taskId);
-
     const task = taskManager.getTaskById(taskId);
     task.status = "DONE";
     taskManager.save();
     taskManager.render();
   }
+  // Task deleted when delete-button clicked
 if(event.target.classList.contains("delete-button"))
 {
-  alert("delete");
   const parentTask = event.target.parentElement.parentElement;
   const taskId = Number(parentTask.dataset.taskId);
-  alert("taskid"+taskId);
   taskManager.deleteTask(taskId);
   taskManager.save();
   taskManager.render();
