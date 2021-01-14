@@ -8,7 +8,6 @@ const createTaskHtml = (
   status
 ) =>
   //cardTemplate.innerHTML=
-
   `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem" data-task-id=${id}>
           <div class="card-body" >
             <h5 class="card-title">${taskName}</h5>
@@ -59,15 +58,12 @@ class TaskManager {
       status: "TODO",
     };
     this._tasks.push(newTask);
-    // T8. call taskManager.save() to save task to localStorage
-    //taskManager.save();
   }
-  //  deleteTask method on the TaskManager class. It should take one parameter, taskId, the id of the task we want deleted.
+  //  deleteTask method 
   deleteTask(taskId) {
-    //n the deleteTask method, create an empty array and store it in a new variable, newTasks
     const newTasks = [];
     {
-      //Get the current task in the loop, store it in a variable, task.
+      // Get the current task in the loop, store it in a variable, task.
       for (let i = 0; i < this._tasks.length; i++) {
         let task = this._tasks[i];
         //Check if task.id is not equal to the taskId passed as a parameter.
@@ -125,45 +121,28 @@ class TaskManager {
     cardContainer.innerHTML = tasksHtml; //cardTemplate
   }
 
-  // T8. Save method to save current this.tasks to localStorage
+  // Method to save tasks to localStorage
   save() {
     let tasksJson = JSON.stringify(this._tasks); // create JSON string of tasks
-    // Store the JSON string in localStorage under the key tasks using localStorage.setItem()
+    // Store the JSON string in localStorage
     localStorage.setItem("tasks", tasksJson);
-    // Convert the this.currentId to a string and store it in a new variable, currentId.
+    // Convert this._currentId to a string
     let currentId = String(this._currentId);
-    // Store the currentId variable in localStorage under the key currentId using localStorage.setItem().
-    localStorage.setItem("currentId", currentId); // or does currentId need to be stringified?
+    // Store the currentId variable in localStorage.
+    localStorage.setItem("currentId", currentId);
   }
-
-  /*   //In js/taskManager.js, add a new method called load. This method doesn't require any parameters.
-  load() {
-    //check if any tasks are saved in localStorage with localStorage.getItem().
-    if (localStorage.getItem("tasks") !== null) {
-      // get the JSON string of tasks stored in localStorage with localStorage.getItem(), making sure to pass the key we used to save the tasks, tasks. Store this string into a new variable, tasksJson.
-      let tasksJson = JSON.stringify(localStorage.getItem("tasks"));
-      // Check if the currentId is saved in localStorage with localStorage.getItem().
-      if (localStorage.getItem("this._currentId") !== null) {
-        let currentId = localStorage.getItem("this._currentId"); //get the currentId in localStorage using localStorage.getItem() and store it in a new variable, currentId.
-        this._currentId = parseInt("currentId"); //Convert the currentId to a number before storing it to the TaskManager's this.currentId
-        console.log("testing load method");
-      };
-    };
-  } */
+  // Method to load saved tasks from localStorage
   load() {
     if (localStorage.getItem("tasks")) {
       const tasksJson = localStorage.getItem("tasks");
       this._tasks = JSON.parse(tasksJson);
     }
     if (localStorage.getItem("currentId")) {
-      const currentId = localStorage.getItem("currentId"); //get the currentId in localStorage using localStorage.getItem() and store it in a new variable, currentId.
-      this._currentId = Number(currentId); //Convert the currentId to a number before storing it to the TaskManager's this.currentId
-      console.log("testing load method");
+      const currentId = localStorage.getItem("currentId"); //get the currentId in localStorage .
+      this._currentId = Number(currentId); //Convert currentId to a number and store in the TaskManager's this._currentId
     }
   }
 }
-
-
 
 // Module exports
 module.exports = TaskManager;
