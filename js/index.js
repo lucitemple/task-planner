@@ -83,14 +83,14 @@ function validFormFieldInput(data) {
 // Calendar: future dates only, run on click
 newTaskDueDate.addEventListener("click", function () {
   let today = new Date();
-  let minsToday = today.getMinutes();
-  let hourToday = today.getHours();
-  let dateToday = today.getDate();
-  let monthToday = today.getMonth() + 1;
+/*   let dateToday = today.getDate();
+  let monthToday = today.getMonth() + 1; */
+  var dateToday = String(today.getDate()).padStart(2, "0");
+  var monthToday = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   let yearToday = today.getFullYear();
-  let minDate = `${yearToday}-${monthToday}-${dateToday}T${hourToday}:${minsToday}`;
+  let minDate = `${yearToday}-${monthToday}-${dateToday}`;
+  //alert("minDate " + minDate);
   newTaskDueDate.min = minDate;
-  //`alert("minDate " + minDate);
 });
 
 /* function getFocus(inputID) {
