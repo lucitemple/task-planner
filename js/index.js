@@ -33,7 +33,7 @@ newTaskForm.addEventListener("submit", (event) => {
 
   //const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const dueDate = newTaskDueDate.value;
-
+  
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
   // If invalid data, error message.
