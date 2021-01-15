@@ -40,5 +40,6 @@ describe("Task Manager functions", () => {
     const expected = []; // the empty array for ._tasks
     const result = testTaskManager._tasks;
     assert.deepStrictEqual(result, expected);
+    assert.strictEqual(2,taskManager._currentId);
   });
 });
