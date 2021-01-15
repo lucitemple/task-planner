@@ -33,7 +33,7 @@ newTaskForm.addEventListener("submit", (event) => {
 
   //const newTaskDueDate = document.querySelector("#newTaskDueDate");
   const dueDate = newTaskDueDate.value;
-
+  
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
   // If invalid data, error message.
@@ -68,11 +68,6 @@ newTaskForm.addEventListener("submit", (event) => {
     // reset form
     document.querySelector("#newTaskForm").reset();
   }
-  // Clear form
-/*    newTaskNameInput.value = "";
-   newTaskDescription.value = "";
-   newTaskAssignedTo.value = "";
-   newTaskDueDate.value = ""; */
 });
 
 // Validate data to ensure not empty string or null
@@ -83,22 +78,12 @@ function validFormFieldInput(data) {
 // Calendar: future dates only, run on click
 newTaskDueDate.addEventListener("click", function () {
   let today = new Date();
-  let minsToday = today.getMinutes();
-  let hourToday = today.getHours();
-  let dateToday = today.getDate();
-  let monthToday = today.getMonth() + 1;
+  let dateToday = String(today.getDate()).padStart(2, "0");
+  let monthToday = String(today.getMonth() + 1).padStart(2, "0"); //January is 0!
   let yearToday = today.getFullYear();
-  let minDate = `${yearToday}-${monthToday}-${dateToday}T${hourToday}:${minsToday}`;
+  let minDate = `${yearToday}-${monthToday}-${dateToday}`;
   newTaskDueDate.min = minDate;
-  //`alert("minDate " + minDate);
 });
-
-/* function getFocus(inputID) {
-  document.getElementById(inputID).focus();
-}; */
-
-//const cardTemplate = document.querySelector("#cardTemplate");
-//const  = document.querySelector("#cardTemplate");
 
  // When done button clicked mark task done
 cardContainer.addEventListener("click", (event) => {
