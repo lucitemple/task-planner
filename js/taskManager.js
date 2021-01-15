@@ -145,4 +145,7 @@ class TaskManager {
 }
 
 // Module exports
+ if (typeof module != "undefined") {
+  
 module.exports = TaskManager;
+ }
