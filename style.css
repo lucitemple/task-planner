@@ -47,6 +47,10 @@
 #card-container {
   margin-top: 20px;
 }
+
+#modal-footer {
+  text-align: right;
+}
 /*
 #taskButton {
   background-color: red;
@@ -60,3 +64,4 @@
   margin: 4px 2px;
   cursor: pointer;
 } main
+*/
