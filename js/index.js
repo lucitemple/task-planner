@@ -38,25 +38,17 @@ newTaskForm.addEventListener("submit", (event) => {
 
   // Display error message for invalid inputs.
   if (!validFormFieldInput(taskName)) {
-    formErrorMessage.innerHTML = "Invalid task name. Please correct.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
+    errorMessage("task name");
   } else if (!validFormFieldInput(assignedTo)) {
-    formErrorMessage.innerHTML = "Please assign task.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
-    getFocus(newTaskAssignedTo);
+     errorMessage("assignee");
+    //getFocus(newTaskAssignedTo);
   } else if (!validFormFieldInput(taskDescription)) {
-    formErrorMessage.innerHTML = "Please input description.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
+     errorMessage("description");
   } else if (!validFormFieldInput(dueDate)) {
-    formErrorMessage.innerHTML = "Please assign due date.";
-    formErrorMessage.style.display = "block";
-    formErrorMessage.style.color = "text-danger";
+     errorMessage("date");
   } else {
     formErrorMessage.style.display = "none";
-    
+
     // Send validated values to TaskManager
     taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
 
@@ -70,6 +62,13 @@ newTaskForm.addEventListener("submit", (event) => {
     document.querySelector("#newTaskForm").reset();
   }
 });
+
+// Error message
+function errorMessage(input) {
+      formErrorMessage.innerHTML = `Invalid ${input}. Please correct.`;
+      formErrorMessage.style.display = "block";
+      formErrorMessage.style.color = "text-danger";
+}
 
 // Validate data to ensure not empty string or null
 function validFormFieldInput(data) {
