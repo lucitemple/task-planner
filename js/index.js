@@ -85,19 +85,24 @@ newTaskDueDate.addEventListener("click", function () {
   newTaskDueDate.min = minDate;
 });
 
-// Mark task status "done" when done-button clicked
+// EventListener for task buttons: done / edit /delete
 cardContainer.addEventListener("click", (event) => {
+  const parentTask = event.target.parentElement.parentElement;
+  const taskId = Number(parentTask.dataset.taskId);
+
+  // Mark task status "done" when done-button clicked
   if (event.target.classList.contains("done-button")) {
-    const parentTask = event.target.parentElement.parentElement;
-    const taskId = Number(parentTask.dataset.taskId);
     const task = taskManager.getTaskById(taskId);
     task.status = "DONE";
   }
+  // Open edit mode when edit-button clicked
+  /*     if (event.target.classList.contains("edit-button")) {
+      const task = taskManager.getTaskById(taskId);
+      
+    } */
 
   // Delete task when delete-button clicked
   if (event.target.classList.contains("delete-button")) {
-    const parentTask = event.target.parentElement.parentElement;
-    const taskId = Number(parentTask.dataset.taskId);
     taskManager.deleteTask(taskId);
   }
   taskManager.save();

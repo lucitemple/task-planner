@@ -36,7 +36,7 @@ const createTaskHtml = (
       }">Done</button>
             <button type="button" class="btn btn-danger delete-button ">Delete</button>
 
-            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-primary edit-button">Edit</button>
           </div>
         </div>
       </div>`;
