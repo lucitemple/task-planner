@@ -92,8 +92,6 @@ cardContainer.addEventListener("click", (event) => {
     const taskId = Number(parentTask.dataset.taskId);
     const task = taskManager.getTaskById(taskId);
     task.status = "DONE";
-    taskManager.save();
-    taskManager.render();
   }
 
   // Delete task when delete-button clicked
@@ -101,7 +99,7 @@ cardContainer.addEventListener("click", (event) => {
     const parentTask = event.target.parentElement.parentElement;
     const taskId = Number(parentTask.dataset.taskId);
     taskManager.deleteTask(taskId);
-    taskManager.save();
-    taskManager.render();
   }
+  taskManager.save();
+  taskManager.render();
 });
