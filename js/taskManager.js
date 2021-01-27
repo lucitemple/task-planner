@@ -1,4 +1,4 @@
-//  Function, createTaskHtml
+// Function for turning the task data into HTML
 const createTaskHtml = (
   id,
   taskName,
@@ -7,7 +7,7 @@ const createTaskHtml = (
   dueDate,
   status
 ) =>
-  //cardTemplate.innerHTML=
+  // How task input will be displayed in cardTemplate.innerHTML=
   `<div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem" data-task-id=${id}>
           <div class="card-body" >
             <h5 class="card-title">${taskName}</h5>
@@ -41,13 +41,13 @@ const createTaskHtml = (
         </div>
       </div>`;
 
-// TaskManager class
+// TaskManager class to manage tasks
 class TaskManager {
   constructor(currentId = "0") {
     this._tasks = [];
     this._currentId = currentId;
   }
-  // Method for adding tasks
+  // Method to add a task to task manager
   addTask(taskName, taskDescription, assignedTo, dueDate) {
     const newTask = {
       id: this._currentId++,
@@ -59,16 +59,16 @@ class TaskManager {
     };
     this._tasks.push(newTask);
   }
-  //  deleteTask method 
+  // Method to delete tasks from task manager
   deleteTask(taskId) {
     const newTasks = [];
     {
       // Get the current task in the loop, store it in a variable, task.
       for (let i = 0; i < this._tasks.length; i++) {
         let task = this._tasks[i];
-        //Check if task.id is not equal to the taskId passed as a parameter.
+        // Check if task.id is not equal to the taskId passed as a parameter.
         if (task.id !== taskId) {
-          //If the task.id is not equal to the taskId, push the task into the newTasks array.
+          // If the task.id is not equal to the taskId, push the task into the newTasks array.
           newTasks.push(task);
         }
       }
@@ -88,7 +88,7 @@ class TaskManager {
     }
     return foundTask;
   }
-  // Create render method
+  // Create render method to display tasks on website
   render() {
     // Creating variable to store task html
     const tasksHtmlList = [];
@@ -138,7 +138,7 @@ class TaskManager {
       this._tasks = JSON.parse(tasksJson);
     }
     if (localStorage.getItem("currentId")) {
-      const currentId = localStorage.getItem("currentId"); //get the currentId in localStorage .
+      const currentId = localStorage.getItem("currentId"); //get the currentId in localStorage
       this._currentId = Number(currentId); //Convert currentId to a number and store in the TaskManager's this._currentId
     }
   }

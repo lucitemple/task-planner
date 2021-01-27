@@ -40,7 +40,6 @@
   width: 12rem;
   height: 10em;
   white-space: auto;
-  /* border: dotted; */
   overflow: auto; /* content is not clipped */ 
 }
 
