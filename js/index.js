@@ -96,10 +96,10 @@ cardContainer.addEventListener("click", (event) => {
     task.status = "DONE";
   }
   // Open edit mode when edit-button clicked
-  /*     if (event.target.classList.contains("edit-button")) {
-      const task = taskManager.getTaskById(taskId);
+      if (event.target.classList.contains("edit-button")) {
+      const editTask = taskManager.getTaskById(taskId);
       
-    } */
+    }
 
   // Delete task when delete-button clicked
   if (event.target.classList.contains("delete-button")) {
