@@ -32,7 +32,7 @@ const createTaskHtml = (
        <div class="card-body">
      
       <button class="btn btn-success done-button ${
-        status === "TODO" ? "visible" : "invisible"
+        status === "DONE" ? "invisible" : "visible"
       }">Done</button>
             <button type="button" class="btn btn-danger delete-button ">Delete</button>
 
@@ -48,14 +48,14 @@ class TaskManager {
     this._currentId = currentId;
   }
   // Method to add a task to task manager
-  addTask(taskName, taskDescription, assignedTo, dueDate) {
+  addTask(taskName, taskDescription, assignedTo, dueDate, status = "TODO") {
     const newTask = {
       id: this._currentId++,
       taskName: taskName,
       taskDescription: taskDescription,
       assignedTo: assignedTo,
       dueDate: dueDate,
-      status: "TODO",
+      status: status,
     };
     this._tasks.push(newTask);
   }

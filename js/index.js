@@ -66,7 +66,13 @@ newTaskForm.addEventListener("submit", (event) => {
 
     // Send validated values to TaskManager
     if (taskFormMode === "add") {
-      taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
+      taskManager.addTask(
+        taskName,
+        taskDescription,
+        assignedTo,
+        dueDate,
+        taskStatus
+      );
     }
 
     if (taskFormMode === "edit") {
@@ -76,7 +82,7 @@ newTaskForm.addEventListener("submit", (event) => {
         taskDescription,
         assignedTo,
         dueDate,
-        status
+        taskStatus
       );
     }
 
@@ -135,13 +141,15 @@ cardContainer.addEventListener("click", (event) => {
     newTaskDescription.value = editedTask.taskDescription;
     newTaskAssignedTo.value = editedTask.assignedTo;
     newTaskDueDate.value = editedTask.dueDate;
-    newTaskStatus.value = editedTask.status;
+    newTaskStatus.value = editedTask.taskStatus; // THIS BIT NOT WORKING
   }
 
   // Delete task when delete-button clicked
   if (event.target.classList.contains("delete-button")) {
     taskManager.deleteTask(taskId);
   }
+
+  // Save and render changes
   taskManager.save();
   taskManager.render();
 });
