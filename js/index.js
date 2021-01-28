@@ -131,11 +131,11 @@ cardContainer.addEventListener("click", (event) => {
     editedTask = taskManager.getTaskById(taskId);
 
     // Fill task form fields with stored values
-    /*     newTaskNameInput.value = editedTask.taskName;
+    newTaskNameInput.value = editedTask.taskName;
     newTaskDescription.value = editedTask.taskDescription;
     newTaskAssignedTo.value = editedTask.assignedTo;
     newTaskDueDate.value = editedTask.dueDate;
-    newTaskStatus.value = editedTask.status; */
+    newTaskStatus.value = editedTask.status;
   }
 
   // Delete task when delete-button clicked
