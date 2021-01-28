@@ -59,6 +59,16 @@ class TaskManager {
     };
     this._tasks.push(newTask);
   }
+
+  // Edit method
+  editTask(editedTask, taskName, taskDescription, assignedTo, dueDate, status) {
+    editedTask.taskName = taskName;
+    editedTask.taskDescription = taskDescription;
+    editedTask.assignedTo = assignedTo;
+    editedTask.dueDate = dueDate;
+    editedTask.status = status;
+  }
+
   // Method to delete tasks from task manager
   deleteTask(taskId) {
     const newTasks = [];
@@ -88,6 +98,7 @@ class TaskManager {
     }
     return foundTask;
   }
+
   // Create render method to display tasks on website
   render() {
     // Creating variable to store task html
@@ -145,6 +156,6 @@ class TaskManager {
 }
 
 // Module exports
- if (typeof module != "undefined") {
-module.exports = TaskManager;
- }
+if (typeof module != "undefined") {
+  module.exports = TaskManager;
+}
