@@ -29,6 +29,9 @@ newTaskForm.addEventListener("submit", (event) => {
   const newTaskStatus = document.querySelector("#newTaskStatus");
   const formErrorMessage = document.querySelector("#formErrorMessage");
 
+  // Select task modal window
+  const taskModal = document.getElementById("createTaskModal");
+
   // Store values of form inputs
   const taskName = newTaskNameInput.value;
   const assignedTo = newTaskAssignedTo.value;
@@ -40,12 +43,12 @@ newTaskForm.addEventListener("submit", (event) => {
   if (!validFormFieldInput(taskName)) {
     errorMessage("task name");
   } else if (!validFormFieldInput(assignedTo)) {
-     errorMessage("assignee");
+    errorMessage("assignee");
     //getFocus(newTaskAssignedTo);
   } else if (!validFormFieldInput(taskDescription)) {
-     errorMessage("description");
+    errorMessage("description");
   } else if (!validFormFieldInput(dueDate)) {
-     errorMessage("date");
+    errorMessage("date");
   } else {
     formErrorMessage.style.display = "none";
 
@@ -65,9 +68,9 @@ newTaskForm.addEventListener("submit", (event) => {
 
 // Error message
 function errorMessage(input) {
-      formErrorMessage.innerHTML = `Invalid ${input}. Please correct.`;
-      formErrorMessage.style.display = "block";
-      formErrorMessage.style.color = "text-danger";
+  formErrorMessage.innerHTML = `Invalid ${input}. Please correct.`;
+  formErrorMessage.style.display = "block";
+  formErrorMessage.style.color = "text-danger";
 }
 
 // Validate data to ensure not empty string or null
@@ -96,10 +99,15 @@ cardContainer.addEventListener("click", (event) => {
     task.status = "DONE";
   }
   // Open edit mode when edit-button clicked
-      if (event.target.classList.contains("edit-button")) {
-      const editTask = taskManager.getTaskById(taskId);
-      
-    }
+  if (event.target.classList.contains("edit-button")) {
+    const editTask = taskManager.getTaskById(taskId);
+
+    taskName.value = editTask.name;
+    taskDescription.value = editTask.description;
+    assignedTo.value = editTask.assignedTo;
+    dueDate.value = editTask.dueDate;
+    status.value = editTask.status;
+  }
 
   // Delete task when delete-button clicked
   if (event.target.classList.contains("delete-button")) {
