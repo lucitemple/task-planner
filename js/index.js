@@ -17,6 +17,18 @@ const newTaskForm = document.querySelector("#newTaskForm");
 // Select date field in form
 const newTaskDueDate = document.querySelector("#newTaskDueDate");
 
+// Store taskform mode - add OR edit
+let taskFormMode;
+
+// Empty variable to store edited task temporarily
+let editedTask;
+
+// Event listener for add task button
+const createTaskButton = document.querySelector("#createTaskButton");
+createTaskButton.addEventListener("click", () => {
+  taskFormMode = 'add';
+})
+
 // Add event listener for form submission
 newTaskForm.addEventListener("submit", (event) => {
   // Prevent page from refreshing while form being used
@@ -53,7 +65,20 @@ newTaskForm.addEventListener("submit", (event) => {
     formErrorMessage.style.display = "none";
 
     // Send validated values to TaskManager
-    taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
+    if (taskFormMode === "add") {
+      taskManager.addTask(taskName, taskDescription, assignedTo, dueDate);
+    }
+
+    if (taskFormMode === "edit") {
+      taskManager.editTask(
+        editedTask,
+        taskName,
+        taskDescription,
+        assignedTo,
+        dueDate,
+        status
+      );
+    }
 
     // Call taskManager render method to push tasks to html
     taskManager.render();
@@ -100,13 +125,17 @@ cardContainer.addEventListener("click", (event) => {
   }
   // Open edit mode when edit-button clicked
   if (event.target.classList.contains("edit-button")) {
-    const editTask = taskManager.getTaskById(taskId);
+    // Switch task form mode to 'edit'
+    taskFormMode = 'edit';
 
-    taskName.value = editTask.name;
-    taskDescription.value = editTask.description;
-    assignedTo.value = editTask.assignedTo;
-    dueDate.value = editTask.dueDate;
-    status.value = editTask.status;
+    editedTask = taskManager.getTaskById(taskId);
+
+    // Fill task form fields with stored values
+    taskName.value = editedTask.taskName;
+    taskDescription.value = editedTask.taskDescription;
+    assignedTo.value = editedTask.assignedTo;
+    dueDate.value = editedTask.dueDate;
+    status.value = editedTask.status;
   }
 
   // Delete task when delete-button clicked
