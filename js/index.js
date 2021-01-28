@@ -26,23 +26,23 @@ let editedTask;
 // Event listener for add task button
 const createTaskButton = document.querySelector("#createTaskButton");
 createTaskButton.addEventListener("click", () => {
-  taskFormMode = 'add';
-})
+  taskFormMode = "add";
+});
+
+// Select New Task form inputs
+const newTaskNameInput = document.querySelector("#newTaskNameInput");
+const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
+const newTaskDescription = document.querySelector("#newTaskDescription");
+const newTaskStatus = document.querySelector("#newTaskStatus");
+const formErrorMessage = document.querySelector("#formErrorMessage");
+
+// Select task modal window
+const taskModal = document.getElementById("createTaskModal");
 
 // Add event listener for form submission
 newTaskForm.addEventListener("submit", (event) => {
   // Prevent page from refreshing while form being used
   event.preventDefault();
-
-  // Select New Task form inputs
-  const newTaskNameInput = document.querySelector("#newTaskNameInput");
-  const newTaskAssignedTo = document.querySelector("#newTaskAssignedTo");
-  const newTaskDescription = document.querySelector("#newTaskDescription");
-  const newTaskStatus = document.querySelector("#newTaskStatus");
-  const formErrorMessage = document.querySelector("#formErrorMessage");
-
-  // Select task modal window
-  const taskModal = document.getElementById("createTaskModal");
 
   // Store values of form inputs
   const taskName = newTaskNameInput.value;
@@ -126,16 +126,16 @@ cardContainer.addEventListener("click", (event) => {
   // Open edit mode when edit-button clicked
   if (event.target.classList.contains("edit-button")) {
     // Switch task form mode to 'edit'
-    taskFormMode = 'edit';
+    taskFormMode = "edit";
 
     editedTask = taskManager.getTaskById(taskId);
 
     // Fill task form fields with stored values
-    taskName.value = editedTask.taskName;
-    taskDescription.value = editedTask.taskDescription;
-    assignedTo.value = editedTask.assignedTo;
-    dueDate.value = editedTask.dueDate;
-    status.value = editedTask.status;
+    /*     newTaskNameInput.value = editedTask.taskName;
+    newTaskDescription.value = editedTask.taskDescription;
+    newTaskAssignedTo.value = editedTask.assignedTo;
+    newTaskDueDate.value = editedTask.dueDate;
+    newTaskStatus.value = editedTask.status; */
   }
 
   // Delete task when delete-button clicked

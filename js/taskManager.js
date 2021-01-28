@@ -60,7 +60,7 @@ class TaskManager {
     this._tasks.push(newTask);
   }
 
-  // Edit method
+  // Edit method saves edits to task
   editTask(editedTask, taskName, taskDescription, assignedTo, dueDate, status) {
     editedTask.taskName = taskName;
     editedTask.taskDescription = taskDescription;
