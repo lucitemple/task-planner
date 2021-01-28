@@ -1,7 +1,7 @@
 const TaskManager = require("./../js/taskManager.js");
 const assert = require("assert");
 
-// Lavina's code
+// Test suite
 describe("Task Manager functions", () => {
   const taskManager = new TaskManager(0);
   it("Should add a task", function () {
