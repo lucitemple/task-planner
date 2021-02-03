@@ -27,9 +27,9 @@
       <header id="pageTitle">
         <h1>Task Planner</h1>
       </header>
-      <!-- Row for buttons at top -->
+      <!-- Row for header button & filter START -->
       <div class="row header-buttons">
-        <!-- Create button trigger Task modal -->
+        <!-- Create Task button triggers Task modal -->
         <button
           type="button"
           class="btn btn-primary"
@@ -39,7 +39,7 @@
         >
           Create Task
         </button>
-        <!--Create Dropdown filter to select by status-->
+        <!--Dropdown filter to select tasks by status-->
         <div class="dropdown">
           <button
             class="btn btn-default dropdown-toggle"
@@ -67,9 +67,9 @@
           </ul>
         </div>
       </div>
-      <!--Close ROW for button and drop down filter-->
+      <!--Row for button and filter END-->
 
-      <!--Modal (to open on click of Create Task Button)-->
+      <!--Modal (to open on click of Create Task Button) START-->
       <div
         class="modal fade"
         id="createTaskModal"
@@ -208,37 +208,9 @@
 
       <!--Task cards container START-->
       <div class="d-flex flex-wrap justify-content-center" id="card-container">
-        <!-- https://getbootstrap.com/docs/4.0/components/card/ -->
-        <!-- <div class="card shadow p-2 mb-4 bg-white m-2" style="width: 18rem" id="cardTemplate">
-          
-          <div class="card-body">
-            <h5 class="card-title">Grocery Shopping</h5>
-            <p class="card-text">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            </p>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="assigned-to-label list-group-item">
-              Assigned to:
-              <span class="assignee">Marium</span>
-            </li>
-            <li class="list-group-item due-date-label">
-              Due date:
-              <span class="due-date">20/10/2020</span>
-            </li>
-            <li class="list-group-item status-label">
-              Status:
-              <span class="status">Complete</span>
-            </li>
-          </ul>
-          <div class="card-body">
-            Buttons
-            <button type="button" class="btn btn-danger">Delete</button>
-            <button type="button" class="btn btn-success">Edit</button>
-          </div>
-        </div>
-      </div> -->
-      <!-- Task Card Container END-->
+        <!-- Task cards are pushed from JS into the card container here. https://getbootstrap.com/docs/4.0/components/card/ -->
+        <!-- Task Card Container END-->
+      </div>
 
       <!--Footer-->
     </div>
@@ -263,6 +235,5 @@
     <!-- JS page link -->
     <script src="js/taskManager.js"></script>
     <script src="js/index.js"></script>
-
   </body>
 </html>
