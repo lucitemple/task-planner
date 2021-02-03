@@ -151,10 +151,10 @@
                     </label>
                     <div class="col-sm-9">
                       <select class="form-control" id="newTaskStatus">
-                        <option value="toDo">To do</option>
-                        <option value="inProgress">In progress</option>
-                        <option value="review">Review</option>
-                        <option value="done">Done</option>
+                        <option selected value="TO DO">To do</option>
+                        <option value="IN PROGRESS">In progress</option>
+                        <option value="REVIEW">Review</option>
+                        <option value="DONE">Done</option>
                       </select>
                     </div>
                   </div>
@@ -184,8 +184,12 @@
                       Close
                     </button>
                     <!-- Submit button-->
-                    <button type="submit" class="btn btn-success">
-                      Submit
+                    <button
+                      type="submit"
+                      class="btn btn-success"
+                      data-dismiss=""
+                    >
+                      Save
                     </button>
                   </div>
                   <!-- Form Validation Error Message-->
