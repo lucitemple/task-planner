@@ -17,6 +17,9 @@ const newTaskForm = document.querySelector("#newTaskForm");
 // Select date field in form
 const newTaskDueDate = document.querySelector("#newTaskDueDate");
 
+// Select the title of the task modal so can switch between add & edit modes
+const taskModalTitle = document.querySelector("#createTaskModalLabel");
+
 // Store taskform mode - add OR edit
 let taskFormMode;
 
@@ -27,6 +30,7 @@ let editedTask;
 const createTaskButton = document.querySelector("#createTaskButton");
 createTaskButton.addEventListener("click", () => {
   taskFormMode = "add";
+  taskModalTitle.innerHTML = "Create Task";
 });
 
 // Select New Task form inputs
@@ -37,7 +41,7 @@ const newTaskStatus = document.querySelector("#newTaskStatus");
 const formErrorMessage = document.querySelector("#formErrorMessage");
 
 // Select task modal window
-const taskModal = document.getElementById("createTaskModal");
+let taskModal = document.getElementById("createTaskModal");
 
 // Add event listener for form submission
 newTaskForm.addEventListener("submit", (event) => {
@@ -63,7 +67,6 @@ newTaskForm.addEventListener("submit", (event) => {
     errorMessage("date");
   } else {
     formErrorMessage.style.display = "none";
-
     // Send validated values to TaskManager
     if (taskFormMode === "add") {
       taskManager.addTask(
@@ -84,6 +87,12 @@ newTaskForm.addEventListener("submit", (event) => {
         dueDate,
         taskStatus
       );
+      // Switch task form mode to 'add'
+      taskFormMode = "add";
+      // Switch title of the modal
+      taskModalTitle.innerHTML = "Create Task";
+      // Close modal when save button clicked
+      $("#createTaskModal .close").click();
     }
 
     // Call taskManager render method to push tasks to html
@@ -93,7 +102,7 @@ newTaskForm.addEventListener("submit", (event) => {
     taskManager.save();
 
     // Reset form
-    document.querySelector("#newTaskForm").reset();
+    newTaskForm.reset();
   }
 });
 
@@ -133,6 +142,8 @@ cardContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("edit-button")) {
     // Switch task form mode to 'edit'
     taskFormMode = "edit";
+    // Switch title of the modal to "edit"
+    taskModalTitle.innerHTML = "Edit Task";
 
     editedTask = taskManager.getTaskById(taskId);
 
@@ -141,7 +152,7 @@ cardContainer.addEventListener("click", (event) => {
     newTaskDescription.value = editedTask.taskDescription;
     newTaskAssignedTo.value = editedTask.assignedTo;
     newTaskDueDate.value = editedTask.dueDate;
-    newTaskStatus.value = editedTask.taskStatus; // THIS BIT NOT WORKING
+    newTaskStatus.value = editedTask.taskStatus; // THIS BIT NOT WORKING PROPERLY: DOESN'T DISPLAY CURRENT STATUS ON EDIT FORM
   }
 
   // Delete task when delete-button clicked
