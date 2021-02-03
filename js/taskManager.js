@@ -32,11 +32,11 @@ const createTaskHtml = (
        <div class="card-body">
      
       <button class="btn btn-success done-button ${
-        status === "TODO" ? "visible" : "invisible"
+        status === "DONE" ? "invisible" : "visible"
       }">Done</button>
             <button type="button" class="btn btn-danger delete-button ">Delete</button>
 
-            <button type="button" class="btn btn-primary">Edit</button>
+            <button type="button" class="btn btn-primary edit-button" data-toggle="modal" data-target="#createTaskModal"id="editTaskButton">Edit</button>
           </div>
         </div>
       </div>`;
@@ -48,17 +48,27 @@ class TaskManager {
     this._currentId = currentId;
   }
   // Method to add a task to task manager
-  addTask(taskName, taskDescription, assignedTo, dueDate) {
+  addTask(taskName, taskDescription, assignedTo, dueDate, status = "TO DO") {
     const newTask = {
       id: this._currentId++,
       taskName: taskName,
       taskDescription: taskDescription,
       assignedTo: assignedTo,
       dueDate: dueDate,
-      status: "TODO",
+      status: status,
     };
     this._tasks.push(newTask);
   }
+
+  // Edit method saves edits to task
+  editTask(editedTask, taskName, taskDescription, assignedTo, dueDate, status) {
+    editedTask.taskName = taskName;
+    editedTask.taskDescription = taskDescription;
+    editedTask.assignedTo = assignedTo;
+    editedTask.dueDate = dueDate;
+    editedTask.status = status;
+  }
+
   // Method to delete tasks from task manager
   deleteTask(taskId) {
     const newTasks = [];
@@ -88,6 +98,7 @@ class TaskManager {
     }
     return foundTask;
   }
+
   // Create render method to display tasks on website
   render() {
     // Creating variable to store task html
@@ -145,6 +156,6 @@ class TaskManager {
 }
 
 // Module exports
- if (typeof module != "undefined") {
-module.exports = TaskManager;
- }
+if (typeof module != "undefined") {
+  module.exports = TaskManager;
+}
