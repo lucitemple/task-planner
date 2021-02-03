@@ -52,7 +52,7 @@ newTaskForm.addEventListener("submit", (event) => {
   const taskName = newTaskNameInput.value;
   const assignedTo = newTaskAssignedTo.value;
   const taskDescription = newTaskDescription.value;
-  const taskStatus = newTaskStatus.value;
+  const status = newTaskStatus.value;
   const dueDate = newTaskDueDate.value;
 
   // Display error message for invalid inputs.
@@ -74,7 +74,7 @@ newTaskForm.addEventListener("submit", (event) => {
         taskDescription,
         assignedTo,
         dueDate,
-        taskStatus
+        status
       );
     }
 
@@ -85,21 +85,21 @@ newTaskForm.addEventListener("submit", (event) => {
         taskDescription,
         assignedTo,
         dueDate,
-        taskStatus
+        status
       );
       // Switch task form mode to 'add'
       taskFormMode = "add";
       // Switch title of the modal
       taskModalTitle.innerHTML = "Create Task";
       // Close modal when save button clicked
-      $("#createTaskModal .close").click();
+      $("#createTaskModal").modal("toggle");
     }
-
-    // Call taskManager render method to push tasks to html
-    taskManager.render();
 
     // Call taskManager.save() to save task to localStorage
     taskManager.save();
+
+    // Call taskManager render method to push tasks to html
+    taskManager.render();
 
     // Reset form
     newTaskForm.reset();
@@ -152,7 +152,7 @@ cardContainer.addEventListener("click", (event) => {
     newTaskDescription.value = editedTask.taskDescription;
     newTaskAssignedTo.value = editedTask.assignedTo;
     newTaskDueDate.value = editedTask.dueDate;
-    newTaskStatus.value = editedTask.taskStatus; // THIS BIT NOT WORKING PROPERLY: DOESN'T DISPLAY CURRENT STATUS ON EDIT FORM
+    newTaskStatus.value = editedTask.status;
   }
 
   // Delete task when delete-button clicked

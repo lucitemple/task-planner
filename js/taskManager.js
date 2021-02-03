@@ -48,7 +48,7 @@ class TaskManager {
     this._currentId = currentId;
   }
   // Method to add a task to task manager
-  addTask(taskName, taskDescription, assignedTo, dueDate, status = "TODO") {
+  addTask(taskName, taskDescription, assignedTo, dueDate, status = "TO DO") {
     const newTask = {
       id: this._currentId++,
       taskName: taskName,
